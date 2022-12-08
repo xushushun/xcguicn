@@ -1,7 +1,7 @@
 package widget
 
 import (
-	"github.com/twgh/xcgui/xc"
+	"github.com/xushushun/xcguicn/xc"
 )
 
 // ShapeGif 形状对象GIF.

@@ -1,8 +1,8 @@
 package xc
 
 import (
-	"github.com/twgh/xcgui/common"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/common"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // 布局盒子_启用水平.

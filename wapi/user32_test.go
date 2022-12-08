@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/wapi"
-	"github.com/twgh/xcgui/widget"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/app"
+	"github.com/xushushun/xcguicn/wapi"
+	"github.com/xushushun/xcguicn/widget"
+	"github.com/xushushun/xcguicn/window"
+	"github.com/xushushun/xcguicn/xc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 func TestGetDesktopWindow(t *testing.T) {

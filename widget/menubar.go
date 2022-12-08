@@ -1,6 +1,6 @@
 package widget
 
-import "github.com/twgh/xcgui/xc"
+import "github.com/xushushun/xcguicn/xc"
 
 // MenuBar 菜单条.
 type MenuBar struct {

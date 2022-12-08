@@ -1,11 +1,11 @@
 package xc
 
 import (
-	"github.com/twgh/xcgui/common"
+	"github.com/xushushun/xcguicn/common"
 	"syscall"
 	"unsafe"
 
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // 窗口_创建, 返回: GUI库窗口资源句柄.

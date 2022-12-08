@@ -1,6 +1,6 @@
 package xc
 
-import "github.com/twgh/xcgui/common"
+import "github.com/xushushun/xcguicn/common"
 
 // 数据适配器树_创建, 创建树元素数据适配器, 返回数据适配器句柄.
 func XAdTree_Create() int {

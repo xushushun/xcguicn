@@ -1,8 +1,8 @@
-package adapter
+package 适配器
 
 import (
-	"github.com/twgh/xcgui/objectbase"
-	"github.com/twgh/xcgui/xc"
+	"github.com/xushushun/xcguicn/objectbase"
+	"github.com/xushushun/xcguicn/xc"
 )
 
 // 数据适配器.

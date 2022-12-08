@@ -1,6 +1,6 @@
 package widget
 
-import "github.com/twgh/xcgui/xc"
+import "github.com/xushushun/xcguicn/xc"
 
 // 工具条.
 type ToolBar struct {

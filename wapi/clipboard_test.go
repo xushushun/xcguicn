@@ -2,7 +2,7 @@ package wapi_test
 
 import (
 	"fmt"
-	"github.com/twgh/xcgui/wapi"
+	"github.com/xushushun/xcguicn/wapi"
 	"testing"
 )
 

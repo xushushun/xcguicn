@@ -1,12 +1,12 @@
 package wapi
 
 import (
-	"github.com/twgh/xcgui/common"
+	"github.com/xushushun/xcguicn/common"
 	"syscall"
 	"unsafe"
 
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 var (

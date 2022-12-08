@@ -1,6 +1,6 @@
 package res
 
-import "github.com/twgh/xcgui/xc"
+import "github.com/xushushun/xcguicn/xc"
 
 // 资源_启用延迟加载, 启用延迟加载; 图片文件, 列表项模板文件.
 //

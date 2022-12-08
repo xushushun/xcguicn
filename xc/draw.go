@@ -3,9 +3,9 @@ package xc
 import (
 	"unsafe"
 
-	"github.com/twgh/xcgui/common"
+	"github.com/xushushun/xcguicn/common"
 
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // 绘制_创建, 创建图形绘制模块实例, 返回句柄.

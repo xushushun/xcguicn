@@ -1,10 +1,10 @@
 package xc
 
 import (
-	"github.com/twgh/xcgui/common"
+	"github.com/xushushun/xcguicn/common"
 	"unsafe"
 
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // 背景对象_置外间距, 外间距与对齐标识(BkObject_Align_Flag_)互相依赖.

@@ -1,8 +1,8 @@
 package xc
 
 import (
-	"github.com/twgh/xcgui/common"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/common"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // 缓动_Linear, 线性.

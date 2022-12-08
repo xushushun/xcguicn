@@ -1,9 +1,9 @@
 package widget
 
 import (
-	"github.com/twgh/xcgui/objectbase"
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/objectbase"
+	"github.com/xushushun/xcguicn/xc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // Menu 弹出菜单.

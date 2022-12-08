@@ -1,10 +1,10 @@
 package xc
 
 import (
-	"github.com/twgh/xcgui/common"
+	"github.com/xushushun/xcguicn/common"
 	"unsafe"
 
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // XFont_Create 字体_创建, 创建炫彩字体. 当字体句柄与元素关联后, 会自动释放.

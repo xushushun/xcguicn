@@ -1,6 +1,6 @@
 package xc
 
-import "github.com/twgh/xcgui/common"
+import "github.com/xushushun/xcguicn/common"
 
 // 菜单条_创建, 创建菜单条元素; 如果指定了父为窗口, 默认调用XWnd_AddMenuBar()函数, 将菜单条添加到窗口非客户区. 返回元素句柄.
 //

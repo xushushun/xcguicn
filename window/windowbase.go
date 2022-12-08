@@ -1,10 +1,10 @@
 package window
 
 import (
-	"github.com/twgh/xcgui/objectbase"
-	"github.com/twgh/xcgui/wnd"
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/objectbase"
+	"github.com/xushushun/xcguicn/wnd"
+	"github.com/xushushun/xcguicn/xc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // windowBase 窗口基类.

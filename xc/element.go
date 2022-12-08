@@ -1,11 +1,11 @@
 package xc
 
 import (
-	"github.com/twgh/xcgui/common"
+	"github.com/xushushun/xcguicn/common"
 	"syscall"
 	"unsafe"
 
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // 元素_创建, 创建基础元素.

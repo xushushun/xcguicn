@@ -1,6 +1,6 @@
 package xc
 
-import "github.com/twgh/xcgui/xcc"
+import "github.com/xushushun/xcguicn/xcc"
 
 // XObj_GetType 炫彩对象_取类型, 获取对象最终类型, 返回对象类型: XC_.
 //

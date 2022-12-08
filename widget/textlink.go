@@ -1,7 +1,7 @@
 package widget
 
 import (
-	"github.com/twgh/xcgui/xc"
+	"github.com/xushushun/xcguicn/xc"
 )
 
 // 静态文本链接按钮.

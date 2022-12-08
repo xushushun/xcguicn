@@ -1,8 +1,8 @@
 package ani
 
 import (
-	"github.com/twgh/xcgui/objectbase"
-	"github.com/twgh/xcgui/xc"
+	"github.com/xushushun/xcguicn/objectbase"
+	"github.com/xushushun/xcguicn/xc"
 )
 
 // 动画特效基类.

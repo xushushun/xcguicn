@@ -1,8 +1,8 @@
 package svg
 
 import (
-	"github.com/twgh/xcgui/objectbase"
-	"github.com/twgh/xcgui/xc"
+	"github.com/xushushun/xcguicn/objectbase"
+	"github.com/xushushun/xcguicn/xc"
 )
 
 // SVG矢量图形.

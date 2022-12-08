@@ -1,7 +1,7 @@
 package bkobj
 
 import (
-	"github.com/twgh/xcgui/bkmanager"
+	"github.com/xushushun/xcguicn/bkmanager"
 )
 
 // Deprecated

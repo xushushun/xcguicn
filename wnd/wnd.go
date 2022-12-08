@@ -1,7 +1,7 @@
 package wnd
 
 import (
-	"github.com/twgh/xcgui/wapi"
+	"github.com/xushushun/xcguicn/wapi"
 	"strings"
 )
 

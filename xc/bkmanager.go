@@ -1,10 +1,10 @@
 package xc
 
 import (
-	"github.com/twgh/xcgui/common"
+	"github.com/xushushun/xcguicn/common"
 	"unsafe"
 
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // 背景_创建, 创建背景管理器, 返回背景管理器句柄.

@@ -1,8 +1,8 @@
 package widget
 
 import (
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // ShapeText 形状对象文本.

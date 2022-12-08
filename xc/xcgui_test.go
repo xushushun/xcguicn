@@ -3,8 +3,8 @@ package xc_test
 import (
 	"testing"
 
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 func TestXInitXCGUI(t *testing.T) {

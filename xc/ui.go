@@ -1,8 +1,8 @@
 package xc
 
 import (
-	"github.com/twgh/xcgui/common"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/common"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // XUI_SetStyle 可视对象_置样式, 设置UI对象样式.

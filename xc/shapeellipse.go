@@ -1,6 +1,6 @@
 package xc
 
-import "github.com/twgh/xcgui/common"
+import "github.com/xushushun/xcguicn/common"
 
 // 形状圆_创建, 创建圆形形状对象, 返回句柄.
 //

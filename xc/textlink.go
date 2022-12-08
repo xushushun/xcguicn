@@ -1,6 +1,6 @@
 package xc
 
-import "github.com/twgh/xcgui/common"
+import "github.com/xushushun/xcguicn/common"
 
 // 文本链接_创建, 创建静态文本链接元素, 返回元素句柄.
 //

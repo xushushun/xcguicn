@@ -1,6 +1,6 @@
 package xc
 
-import "github.com/twgh/xcgui/xcc"
+import "github.com/xushushun/xcguicn/xcc"
 
 // Menu_PopupWnd_ 菜单-弹出窗口信息
 type Menu_PopupWnd_ struct {

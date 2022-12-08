@@ -3,9 +3,9 @@ package xc
 import (
 	"unsafe"
 
-	"github.com/twgh/xcgui/common"
+	"github.com/xushushun/xcguicn/common"
 
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // 模板_加载从文件, 列表项模板文件载入, 返回模板句柄.

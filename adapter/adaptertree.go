@@ -1,7 +1,7 @@
-package adapter
+package 适配器
 
 import (
-	"github.com/twgh/xcgui/xc"
+	"github.com/xushushun/xcguicn/xc"
 )
 
 // AdapterTree 数据适配器-树元素.

@@ -1,2 +1,2 @@
 // Package adapter 数据适配器.
-package adapter
+package 适配器

@@ -4,9 +4,9 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/twgh/xcgui/common"
+	"github.com/xushushun/xcguicn/common"
 
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // XInitXCGUI 炫彩_初始化.

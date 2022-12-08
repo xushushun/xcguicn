@@ -1,6 +1,6 @@
 package xc
 
-import "github.com/twgh/xcgui/common"
+import "github.com/xushushun/xcguicn/common"
 
 // 炫彩_加载布局文件, 返回窗口句柄或布局句柄或元素句柄.
 //

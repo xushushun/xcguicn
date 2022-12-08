@@ -1,8 +1,8 @@
 package widget
 
 import (
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // 编辑框(常规, 富文本, 聊天气泡).

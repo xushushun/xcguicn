@@ -1,6 +1,6 @@
 package xc
 
-import "github.com/twgh/xcgui/common"
+import "github.com/xushushun/xcguicn/common"
 
 // 滚动条_创建, 创建滚动条元素, 返回元素句柄.
 //

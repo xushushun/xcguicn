@@ -2,7 +2,7 @@ package wapi
 
 import (
 	"errors"
-	"github.com/twgh/xcgui/common"
+	"github.com/xushushun/xcguicn/common"
 	"runtime"
 	"syscall"
 	"time"

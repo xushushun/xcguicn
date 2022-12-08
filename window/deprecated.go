@@ -1,7 +1,7 @@
 package window
 
 import (
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // Deprecated

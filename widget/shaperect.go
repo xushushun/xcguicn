@@ -1,7 +1,7 @@
 package widget
 
 import (
-	"github.com/twgh/xcgui/xc"
+	"github.com/xushushun/xcguicn/xc"
 )
 
 // ShapeRect 矩形形状对象.

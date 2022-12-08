@@ -1,9 +1,9 @@
 package app_test
 
 import (
-	"github.com/twgh/xcgui/app"
-	"github.com/twgh/xcgui/window"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/app"
+	"github.com/xushushun/xcguicn/window"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 func ExampleNew() {

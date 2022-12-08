@@ -1,10 +1,10 @@
 package bkobj
 
 import (
-	"github.com/twgh/xcgui/bkmanager"
-	"github.com/twgh/xcgui/objectbase"
-	"github.com/twgh/xcgui/xc"
-	"github.com/twgh/xcgui/xcc"
+	"github.com/xushushun/xcguicn/bkmanager"
+	"github.com/xushushun/xcguicn/objectbase"
+	"github.com/xushushun/xcguicn/xc"
+	"github.com/xushushun/xcguicn/xcc"
 )
 
 // BkObj 背景对象.
