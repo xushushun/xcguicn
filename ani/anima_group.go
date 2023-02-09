@@ -16,7 +16,7 @@ type AnimaGroup struct {
 // nLoopCount: 动画循环次数, 0: 无限循环.
 func NewAnimaGroup(nLoopCount int) *AnimaGroup {
 	p := &AnimaGroup{}
-	p.SetHandle(xc.XAnimaGroup_Create(nLoopCount))
+	p.W置句柄(xc.XAnimaGroup_Create(nLoopCount))
 	return p
 }
 
@@ -24,5 +24,5 @@ func NewAnimaGroup(nLoopCount int) *AnimaGroup {
 //
 // hSequence: 动画序列句柄.
 func (a *AnimaGroup) AddItem(hSequence int) int {
-	return xc.XAnimaGroup_AddItem(a.Handle, hSequence)
+	return xc.XAnimaGroup_AddItem(a.W句柄, hSequence)
 }

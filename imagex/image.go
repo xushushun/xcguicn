@@ -9,7 +9,7 @@ import (
 
 // Image 图片操作.
 type Image struct {
-	objectbase.ObjectBase
+	基.W基本
 }
 
 // 图片_加载从图片源.
@@ -17,7 +17,7 @@ type Image struct {
 // hImageSrc: 图片源句柄.
 func NewBySrc(hImageSrc int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadSrc(hImageSrc))
+	p.W置句柄(xc.XImage_LoadSrc(hImageSrc))
 	return p
 }
 
@@ -26,7 +26,7 @@ func NewBySrc(hImageSrc int) *Image {
 // pFileName: 图片文件.
 func NewByFile(pFileName string) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadFile(pFileName))
+	p.W置句柄(xc.XImage_LoadFile(pFileName))
 	return p
 }
 
@@ -43,7 +43,7 @@ func NewByFile(pFileName string) *Image {
 // bottomSize: 坐标.
 func NewByFileAdaptive(pFileName string, leftSize int, topSize int, rightSize int, bottomSize int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadFileAdaptive(pFileName, leftSize, topSize, rightSize, bottomSize))
+	p.W置句柄(xc.XImage_LoadFileAdaptive(pFileName, leftSize, topSize, rightSize, bottomSize))
 	return p
 }
 
@@ -60,7 +60,7 @@ func NewByFileAdaptive(pFileName string, leftSize int, topSize int, rightSize in
 // cy: 高度.
 func NewByFileRect(pFileName string, x int, y int, cx int, cy int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadFileRect(pFileName, x, y, cx, cy))
+	p.W置句柄(xc.XImage_LoadFileRect(pFileName, x, y, cx, cy))
 	return p
 }
 
@@ -81,7 +81,7 @@ func NewByFileRect(pFileName string, x int, y int, cx int, cy int) *Image {
 // hModule:	从指定模块加载, 例如:DLL, EXE; 如果为空, 从当前EXE加载.
 func NewByResAdaptive(id int, pType string, leftSize int, topSize int, rightSize int, bottomSize, hModule int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadResAdaptive(id, pType, leftSize, topSize, rightSize, bottomSize, hModule))
+	p.W置句柄(xc.XImage_LoadResAdaptive(id, pType, leftSize, topSize, rightSize, bottomSize, hModule))
 	return p
 }
 
@@ -96,7 +96,7 @@ func NewByResAdaptive(id int, pType string, leftSize int, topSize int, rightSize
 // hModule:	从指定模块加载, 例如:DLL, EXE; 如果为空, 从当前EXE加载.
 func NewByRes(id int, pType string, bStretch bool, hModule int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadRes(id, pType, bStretch, hModule))
+	p.W置句柄(xc.XImage_LoadRes(id, pType, bStretch, hModule))
 	return p
 }
 
@@ -109,7 +109,7 @@ func NewByRes(id int, pType string, bStretch bool, hModule int) *Image {
 // pPassword: ZIP压缩包密码.
 func NewByZip(pZipFileName string, pFileName string, pPassword string) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadZip(pZipFileName, pFileName, pPassword))
+	p.W置句柄(xc.XImage_LoadZip(pZipFileName, pFileName, pPassword))
 	return p
 }
 
@@ -130,7 +130,7 @@ func NewByZip(pZipFileName string, pFileName string, pPassword string) *Image {
 // y2: 坐标.
 func NewByZipAdaptive(pZipFileName string, pFileName string, pPassword string, x1 int, x2 int, y1 int, y2 int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadZipAdaptive(pZipFileName, pFileName, pPassword, x1, x2, y1, y2))
+	p.W置句柄(xc.XImage_LoadZipAdaptive(pZipFileName, pFileName, pPassword, x1, x2, y1, y2))
 	return p
 }
 
@@ -151,7 +151,7 @@ func NewByZipAdaptive(pZipFileName string, pFileName string, pPassword string, x
 // cy: 高度.
 func NewByZipRect(pZipFileName string, pFileName string, pPassword string, x int, y int, cx int, cy int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadZipRect(pZipFileName, pFileName, pPassword, x, y, cx, cy))
+	p.W置句柄(xc.XImage_LoadZipRect(pZipFileName, pFileName, pPassword, x, y, cx, cy))
 	return p
 }
 
@@ -164,7 +164,7 @@ func NewByZipRect(pZipFileName string, pFileName string, pPassword string, x int
 // pPassword: zip压缩包密码.
 func NewByZipMem(data []byte, pFileName string, pPassword string) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadZipMem(data, pFileName, pPassword))
+	p.W置句柄(xc.XImage_LoadZipMem(data, pFileName, pPassword))
 	return p
 }
 
@@ -173,7 +173,7 @@ func NewByZipMem(data []byte, pFileName string, pPassword string) *Image {
 // pBuffer: 图片数据.
 func NewByMem(pBuffer []byte) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadMemory(pBuffer))
+	p.W置句柄(xc.XImage_LoadMemory(pBuffer))
 	return p
 }
 
@@ -190,7 +190,7 @@ func NewByMem(pBuffer []byte) *Image {
 // cy: 高度.
 func NewByMemRect(pBuffer []byte, x int, y int, cx int, cy int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadMemoryRect(pBuffer, x, y, cx, cy))
+	p.W置句柄(xc.XImage_LoadMemoryRect(pBuffer, x, y, cx, cy))
 	return p
 }
 
@@ -207,7 +207,7 @@ func NewByMemRect(pBuffer []byte, x int, y int, cx int, cy int) *Image {
 // bottomSize: 坐标.
 func NewByMemAdaptive(pBuffer []byte, leftSize int, topSize int, rightSize int, bottomSize int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadMemoryAdaptive(pBuffer, leftSize, topSize, rightSize, bottomSize))
+	p.W置句柄(xc.XImage_LoadMemoryAdaptive(pBuffer, leftSize, topSize, rightSize, bottomSize))
 	return p
 }
 
@@ -216,7 +216,7 @@ func NewByMemAdaptive(pBuffer []byte, leftSize int, topSize int, rightSize int, 
 // pImage: GDI图片对象指针Image*.
 func NewByImage(pImage int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadFromImage(pImage))
+	p.W置句柄(xc.XImage_LoadFromImage(pImage))
 	return p
 }
 
@@ -225,7 +225,7 @@ func NewByImage(pImage int) *Image {
 // pFileName: 文件名.
 func NewByExtractIcon(pFileName string) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadFromExtractIcon(pFileName))
+	p.W置句柄(xc.XImage_LoadFromExtractIcon(pFileName))
 	return p
 }
 
@@ -234,7 +234,7 @@ func NewByExtractIcon(pFileName string) *Image {
 // hIcon: 图标句柄.
 func NewByHICON(hIcon int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadFromHICON(hIcon))
+	p.W置句柄(xc.XImage_LoadFromHICON(hIcon))
 	return p
 }
 
@@ -243,7 +243,7 @@ func NewByHICON(hIcon int) *Image {
 // hBitmap: 位图句柄.
 func NewByHBITMAP(hBitmap int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadFromHBITMAP(hBitmap))
+	p.W置句柄(xc.XImage_LoadFromHBITMAP(hBitmap))
 	return p
 }
 
@@ -252,7 +252,7 @@ func NewByHBITMAP(hBitmap int) *Image {
 // hSvg: SVG句柄.
 func NewBySvg(hSvg int) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadSvg(hSvg))
+	p.W置句柄(xc.XImage_LoadSvg(hSvg))
 	return p
 }
 
@@ -261,7 +261,7 @@ func NewBySvg(hSvg int) *Image {
 // pFileName: 文件名.
 func NewBySvgFile(pFileName string) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadSvgFile(pFileName))
+	p.W置句柄(xc.XImage_LoadSvgFile(pFileName))
 	return p
 }
 
@@ -270,7 +270,7 @@ func NewBySvgFile(pFileName string) *Image {
 // pString: 字符串.
 func NewBySvgString(pString string) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadSvgString(pString))
+	p.W置句柄(xc.XImage_LoadSvgString(pString))
 	return p
 }
 
@@ -279,7 +279,7 @@ func NewBySvgString(pString string) *Image {
 // pString: 字符串.
 func NewBySvgStringW(pString string) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadSvgStringW(pString))
+	p.W置句柄(xc.XImage_LoadSvgStringW(pString))
 	return p
 }
 
@@ -288,14 +288,14 @@ func NewBySvgStringW(pString string) *Image {
 // pString: 字符串.
 func NewBySvgStringUtf8(pString string) *Image {
 	p := &Image{}
-	p.SetHandle(xc.XImage_LoadSvgStringUtf8(pString))
+	p.W置句柄(xc.XImage_LoadSvgStringUtf8(pString))
 	return p
 }
 
 // 从句柄创建对象.
 func NewByHandle(handle int) *Image {
 	p := &Image{}
-	p.SetHandle(handle)
+	p.W置句柄(handle)
 	return p
 }
 
@@ -306,7 +306,7 @@ func NewByName(name string) *Image {
 	handle := res.GetImage(name)
 	if handle > 0 {
 		p := &Image{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -321,7 +321,7 @@ func NewByNameEx(fileName, name string) *Image {
 	handle := res.GetImageEx(fileName, name)
 	if handle > 0 {
 		p := &Image{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -331,29 +331,29 @@ func NewByNameEx(fileName, name string) *Image {
 //
 // hImage: 图片句柄.
 func (i *Image) GetSvg() int {
-	return xc.XImage_GetSvg(i.Handle)
+	return xc.XImage_GetSvg(i.W句柄)
 }
 
 // 图片_判断缩放, 是否为拉伸图片句柄.
 func (i *Image) IsStretch() bool {
-	return xc.XImage_IsStretch(i.Handle)
+	return xc.XImage_IsStretch(i.W句柄)
 }
 
 // 图片_判断自适应, 是否为自适应图片句柄.
 func (i *Image) IsAdaptive() bool {
-	return xc.XImage_IsAdaptive(i.Handle)
+	return xc.XImage_IsAdaptive(i.W句柄)
 }
 
 // 图片_判断平铺, 是否为平铺图片.
 func (i *Image) IsTile() bool {
-	return xc.XImage_IsTile(i.Handle)
+	return xc.XImage_IsTile(i.W句柄)
 }
 
 // 图片_置绘制类型, 设置图片绘制类型.
 //
 // nType: 图片绘制类型, Image_Draw_Type_.
 func (i *Image) SetDrawType(nType xcc.Image_Draw_Type_) bool {
-	return xc.XImage_SetDrawType(i.Handle, nType)
+	return xc.XImage_SetDrawType(i.W句柄, nType)
 }
 
 // 图片_置绘制类型自适应, 设置图片自适应(九宫格).
@@ -366,14 +366,14 @@ func (i *Image) SetDrawType(nType xcc.Image_Draw_Type_) bool {
 //
 // bottomSize: 坐标.
 func (i *Image) SetDrawTypeAdaptive(leftSize int, topSize int, rightSize int, bottomSize int) bool {
-	return xc.XImage_SetDrawTypeAdaptive(i.Handle, leftSize, topSize, rightSize, bottomSize)
+	return xc.XImage_SetDrawTypeAdaptive(i.W句柄, leftSize, topSize, rightSize, bottomSize)
 }
 
 // 图片_置透明色, 指定图片透明颜色.
 //
 // color: ABGR 颜色.
 func (i *Image) SetTranColor(color int) int {
-	return xc.XImage_SetTranColor(i.Handle, color)
+	return xc.XImage_SetTranColor(i.W句柄, color)
 }
 
 // 图片_置透明色扩展, 指定图片透明颜色及透明度.
@@ -382,14 +382,14 @@ func (i *Image) SetTranColor(color int) int {
 //
 // tranColor: 透明色的透明度.
 func (i *Image) SetTranColorEx(color int, tranColor uint8) int {
-	return xc.XImage_SetTranColorEx(i.Handle, color, tranColor)
+	return xc.XImage_SetTranColorEx(i.W句柄, color, tranColor)
 }
 
 // 图片_置旋转角度, 设置旋转角度, 返回先前角度.
 //
 // fAngle: 选择角度.
 func (i *Image) SetRotateAngle(fAngle float32) int {
-	return xc.XImage_SetRotateAngle(i.Handle, fAngle)
+	return xc.XImage_SetRotateAngle(i.W句柄, fAngle)
 }
 
 // 图片_置等分.
@@ -398,73 +398,73 @@ func (i *Image) SetRotateAngle(fAngle float32) int {
 //
 // iIndex: 索引.
 func (i *Image) SetSplitEqual(nCount int, iIndex int) int {
-	return xc.XImage_SetSplitEqual(i.Handle, nCount, iIndex)
+	return xc.XImage_SetSplitEqual(i.W句柄, nCount, iIndex)
 }
 
 // 图片_启用透明色, 启用或关闭图片透明色.
 //
 // bEnable: 启用TRUE.
 func (i *Image) EnableTranColor(bEnable bool) int {
-	return xc.XImage_EnableTranColor(i.Handle, bEnable)
+	return xc.XImage_EnableTranColor(i.W句柄, bEnable)
 }
 
 // 图片_启用自动销毁, 启用或关闭自动销毁, 当与UI元素关联时有效.
 //
 // bEnable: 启用自动销毁TRUE.
 func (i *Image) EnableAutoDestroy(bEnable bool) int {
-	return xc.XImage_EnableAutoDestroy(i.Handle, bEnable)
+	return xc.XImage_EnableAutoDestroy(i.W句柄, bEnable)
 }
 
 // 图片_启用居中, 启用或关闭图片居中显示，默认属性图片有效.
 //
 // bCenter: 是否居中显示.
 func (i *Image) EnableCenter(bCenter bool) int {
-	return xc.XImage_EnableCenter(i.Handle, bCenter)
+	return xc.XImage_EnableCenter(i.W句柄, bCenter)
 }
 
 // 图片_判断居中, 判断图片是否居中显示.
 func (i *Image) IsCenter() bool {
-	return xc.XImage_IsCenter(i.Handle)
+	return xc.XImage_IsCenter(i.W句柄)
 }
 
 // 图片_取绘制类型, 获取图片绘制类型, 返回: Image_Draw_Type_.
 func (i *Image) GetDrawType() int {
-	return xc.XImage_GetDrawType(i.Handle)
+	return xc.XImage_GetDrawType(i.W句柄)
 }
 
 // 图片_取宽度.
 func (i *Image) GetWidth() int {
-	return xc.XImage_GetWidth(i.Handle)
+	return xc.XImage_GetWidth(i.W句柄)
 }
 
 // 图片_取高度.
 func (i *Image) GetHeight() int {
-	return xc.XImage_GetHeight(i.Handle)
+	return xc.XImage_GetHeight(i.W句柄)
 }
 
 // 图片_取图片源.
 func (i *Image) GetImageSrc() int {
-	return xc.XImage_GetImageSrc(i.Handle)
+	return xc.XImage_GetImageSrc(i.W句柄)
 }
 
 // 图片_增加引用计数.
 func (i *Image) AddRef() int {
-	return xc.XImage_AddRef(i.Handle)
+	return xc.XImage_AddRef(i.W句柄)
 }
 
 // 图片_释放引用计数, 释放引用计数, 当引用计数为0时, 自动销毁.
 func (i *Image) Release() int {
-	return xc.XImage_Release(i.Handle)
+	return xc.XImage_Release(i.W句柄)
 }
 
 // 图片_取引用计数.
 func (i *Image) GetRefCount() int {
-	return xc.XImage_GetRefCount(i.Handle)
+	return xc.XImage_GetRefCount(i.W句柄)
 }
 
 // 图片_销毁, 强制销毁图片, 谨慎使用, 建议使用 XImage_Release() 释放.
 func (i *Image) Destroy() int {
-	return xc.XImage_Destroy(i.Handle)
+	return xc.XImage_Destroy(i.W句柄)
 }
 
 // 图片_置缩放大小, 启用缩放属性后有效, 值大于0有效.
@@ -473,5 +473,5 @@ func (i *Image) Destroy() int {
 //
 // height: 高度.
 func (i *Image) SetScaleSize(width, height int) int {
-	return xc.XImage_SetScaleSize(i.Handle, width, height)
+	return xc.XImage_SetScaleSize(i.W句柄, width, height)
 }

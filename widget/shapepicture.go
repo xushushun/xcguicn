@@ -22,14 +22,14 @@ type ShapePicture struct {
 // hParent: 父对象句柄.
 func NewShapePicture(x int, y int, cx int, cy int, hParent int) *ShapePicture {
 	p := &ShapePicture{}
-	p.SetHandle(xc.XShapePic_Create(x, y, cx, cy, hParent))
+	p.W置句柄(xc.XShapePic_Create(x, y, cx, cy, hParent))
 	return p
 }
 
 // 从句柄创建对象.
 func NewShapePictureByHandle(handle int) *ShapePicture {
 	p := &ShapePicture{}
-	p.SetHandle(handle)
+	p.W置句柄(handle)
 	return p
 }
 
@@ -38,7 +38,7 @@ func NewShapePictureByName(name string) *ShapePicture {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &ShapePicture{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -49,7 +49,7 @@ func NewShapePictureByUID(nUID int) *ShapePicture {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &ShapePicture{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -60,7 +60,7 @@ func NewShapePictureByUIDName(name string) *ShapePicture {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &ShapePicture{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -70,10 +70,10 @@ func NewShapePictureByUIDName(name string) *ShapePicture {
 //
 // hImage: 图片句柄.
 func (s *ShapePicture) SetImage(hImage int) int {
-	return xc.XShapePic_SetImage(s.Handle, hImage)
+	return xc.XShapePic_SetImage(s.W句柄, hImage)
 }
 
 // 形状图片_取图片, 获取图片句柄.
 func (s *ShapePicture) GetImage() int {
-	return xc.XShapePic_GetImage(s.Handle)
+	return xc.XShapePic_GetImage(s.W句柄)
 }

@@ -23,14 +23,14 @@ type MonthCal struct {
 // hParent: 父为窗口句柄或元素句柄.
 func NewMonthCal(x int, y int, cx int, cy int, hParent int) *MonthCal {
 	p := &MonthCal{}
-	p.SetHandle(xc.XMonthCal_Create(x, y, cx, cy, hParent))
+	p.W置句柄(xc.XMonthCal_Create(x, y, cx, cy, hParent))
 	return p
 }
 
 // 从句柄创建对象.
 func NewMonthCalByHandle(handle int) *MonthCal {
 	p := &MonthCal{}
-	p.SetHandle(handle)
+	p.W置句柄(handle)
 	return p
 }
 
@@ -39,7 +39,7 @@ func NewMonthCalByName(name string) *MonthCal {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &MonthCal{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -50,7 +50,7 @@ func NewMonthCalByUID(nUID int) *MonthCal {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &MonthCal{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -61,7 +61,7 @@ func NewMonthCalByUIDName(name string) *MonthCal {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &MonthCal{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -71,7 +71,7 @@ func NewMonthCalByUIDName(name string) *MonthCal {
 //
 // nType: 按钮类型.
 func (m *MonthCal) GetButton(nType int) int {
-	return xc.XMonthCal_GetButton(m.Handle, nType)
+	return xc.XMonthCal_GetButton(m.W句柄, nType)
 }
 
 // 月历_置当前日期, 设置月历选中的年月日.
@@ -82,7 +82,7 @@ func (m *MonthCal) GetButton(nType int) int {
 //
 // nDay: 日.
 func (m *MonthCal) SetToday(nYear int, nMonth int, nDay int) int {
-	return xc.XMonthCal_SetToday(m.Handle, nYear, nMonth, nDay)
+	return xc.XMonthCal_SetToday(m.W句柄, nYear, nMonth, nDay)
 }
 
 // 月历_取当前日期, 获取月历当前年月日.
@@ -93,7 +93,7 @@ func (m *MonthCal) SetToday(nYear int, nMonth int, nDay int) int {
 //
 // pnDay: 日.[INT.
 func (m *MonthCal) GetToday(pnYear *int, pnMonth *int, pnDay *int) int {
-	return xc.XMonthCal_GetToday(m.Handle, pnYear, pnMonth, pnDay)
+	return xc.XMonthCal_GetToday(m.W句柄, pnYear, pnMonth, pnDay)
 }
 
 // 月历_取选择日期, 获取月历选中的年月日.
@@ -104,7 +104,7 @@ func (m *MonthCal) GetToday(pnYear *int, pnMonth *int, pnDay *int) int {
 //
 // pnDay: 日.[INT.
 func (m *MonthCal) GetSelDate(pnYear *int, pnMonth *int, pnDay *int) int {
-	return xc.XMonthCal_GetSelDate(m.Handle, pnYear, pnMonth, pnDay)
+	return xc.XMonthCal_GetSelDate(m.W句柄, pnYear, pnMonth, pnDay)
 }
 
 // 月历_置文本颜色.
@@ -113,7 +113,7 @@ func (m *MonthCal) GetSelDate(pnYear *int, pnMonth *int, pnDay *int) int {
 //
 // color: ABGR 颜色值.
 func (m *MonthCal) SetTextColor(nFlag int, color int) int {
-	return xc.XMonthCal_SetTextColor(m.Handle, nFlag, color)
+	return xc.XMonthCal_SetTextColor(m.W句柄, nFlag, color)
 }
 
 /*
@@ -125,10 +125,10 @@ type XE_MONTHCAL_CHANGE1 func(hEle int, pbHandled *bool) int // 月历元素日�
 
 // 月历元素日期改变事件.
 func (m *MonthCal) Event_MONTHCAL_CHANGE(pFun XE_MONTHCAL_CHANGE) bool {
-	return xc.XEle_RegEventC(m.Handle, xcc.XE_MONTHCAL_CHANGE, pFun)
+	return xc.XEle_RegEventC(m.W句柄, xcc.XE_MONTHCAL_CHANGE, pFun)
 }
 
 // 月历元素日期改变事件.
 func (m *MonthCal) Event_MONTHCAL_CHANGE1(pFun XE_MONTHCAL_CHANGE1) bool {
-	return xc.XEle_RegEventC1(m.Handle, xcc.XE_MONTHCAL_CHANGE, pFun)
+	return xc.XEle_RegEventC1(m.W句柄, xcc.XE_MONTHCAL_CHANGE, pFun)
 }

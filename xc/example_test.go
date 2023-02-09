@@ -7,10 +7,10 @@ import (
 
 func ExampleXInitXCGUI() {
 	// 可自定义xcgui.dll的路径, 如无需自定义, 则删掉这句代码.
-	/*	err := xc.SetXcguiPath(`C:\Users\Administrator\Desktop\XCGUI.dll`)
-		if err != nil {
-			panic(err)
-		}*/
+	err := xc.SetXcguiPath(`C:\Users\xushushun\GolandProjects\xu-shushun-go\XCGUI.dll`)
+	if err != nil {
+		panic(err)
+	}
 	xc.LoadXCGUI()
 	xc.XInitXCGUI(true)
 	hWindow := xc.XWnd_Create(0, 0, 500, 500, "", 0, xcc.Window_Style_Default)

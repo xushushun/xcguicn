@@ -23,7 +23,7 @@ type ModalWindow struct {
 // XCStyle: 炫彩窗口样式: Window_Style_.
 func NewModalWindow(nWidth int, nHeight int, pTitle string, hWndParent int, XCStyle xcc.Window_Style_) *ModalWindow {
 	p := &ModalWindow{}
-	p.SetHandle(xc.XModalWnd_Create(nWidth, nHeight, pTitle, hWndParent, XCStyle))
+	p.W置句柄(xc.XModalWnd_Create(nWidth, nHeight, pTitle, hWndParent, XCStyle))
 	return p
 }
 
@@ -50,7 +50,7 @@ func NewModalWindow(nWidth int, nHeight int, pTitle string, hWndParent int, XCSt
 // XCStyle: GUI库窗口样式: Window_Style_.
 func NewModalWindowEx(dwExStyle int, dwStyle int, lpClassName string, x int, y int, cx int, cy int, pTitle string, hWndParent int, XCStyle xcc.Window_Style_) *ModalWindow {
 	p := &ModalWindow{}
-	p.SetHandle(xc.XModalWnd_CreateEx(dwExStyle, dwStyle, pTitle, x, y, cx, cy, lpClassName, hWndParent, XCStyle))
+	p.W置句柄(xc.XModalWnd_CreateEx(dwExStyle, dwStyle, pTitle, x, y, cx, cy, lpClassName, hWndParent, XCStyle))
 	return p
 }
 
@@ -64,7 +64,7 @@ func NewModalWindowByLayout(pFileName string, hParent, hAttachWnd int) *ModalWin
 	handle := xc.XC_LoadLayout(pFileName, hParent, hAttachWnd)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -82,7 +82,7 @@ func NewModalWindowByLayoutZip(pZipFileName string, pFileName string, pPassword 
 	handle := xc.XC_LoadLayoutZip(pZipFileName, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -100,7 +100,7 @@ func NewModalWindowByLayoutZipMem(data []byte, pFileName string, pPassword strin
 	handle := xc.XC_LoadLayoutZipMem(data, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -116,7 +116,7 @@ func NewModalWindowByLayoutStringW(pStringXML string, hParent int, hAttachWnd in
 	handle := xc.XC_LoadLayoutFromStringW(pStringXML, hParent, hAttachWnd)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -134,7 +134,7 @@ func NewModalWindowByLayoutEx(pFileName, pPrefixName string, hParent, hParentWnd
 	handle := xc.XC_LoadLayoutEx(pFileName, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -154,7 +154,7 @@ func NewModalWindowByLayoutZipEx(pZipFileName string, pFileName string, pPasswor
 	handle := xc.XC_LoadLayoutZipEx(pZipFileName, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -174,7 +174,7 @@ func NewModalWindowByLayoutZipMemEx(data []byte, pFileName string, pPassword, pP
 	handle := xc.XC_LoadLayoutZipMemEx(data, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -192,7 +192,7 @@ func NewModalWindowByLayoutStringWEx(pStringXML, pPrefixName string, hParent int
 	handle := xc.XC_LoadLayoutFromStringWEx(pStringXML, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -205,14 +205,14 @@ func NewModalWindowByLayoutStringWEx(pStringXML, pPrefixName string, hParent int
 // XCStyle: 炫彩窗口样式: xcc.Window_Style_.
 func ModalWnd_Attach(hWnd int, XCStyle xcc.Window_Style_) *Window {
 	p := &Window{}
-	p.SetHandle(xc.XModalWnd_Attach(hWnd, XCStyle))
+	p.W置句柄(xc.XModalWnd_Attach(hWnd, XCStyle))
 	return p
 }
 
 // 从句柄创建对象.
 func NewModalWindowByHandle(handle int) *ModalWindow {
 	p := &ModalWindow{}
-	p.SetHandle(handle)
+	p.W置句柄(handle)
 	return p
 }
 
@@ -221,7 +221,7 @@ func NewModalWindowByName(name string) *ModalWindow {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -232,7 +232,7 @@ func NewModalWindowByUID(nUID int) *ModalWindow {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -243,7 +243,7 @@ func NewModalWindowByUIDName(name string) *ModalWindow {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &ModalWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -253,24 +253,24 @@ func NewModalWindowByUIDName(name string) *ModalWindow {
 //
 // bEnable: 开启开关.
 func (m *ModalWindow) EnableAutoClose(bEnable bool) int {
-	return xc.XModalWnd_EnableAutoClose(m.Handle, bEnable)
+	return xc.XModalWnd_EnableAutoClose(m.W句柄, bEnable)
 }
 
 // 模态窗口_启用ESC关闭, 当用户按ESC键时自动关闭模态窗口.
 //
 // bEnable: 是否启用.
 func (m *ModalWindow) EnableEscClose(bEnable bool) int {
-	return xc.XModalWnd_EnableEscClose(m.Handle, bEnable)
+	return xc.XModalWnd_EnableEscClose(m.W句柄, bEnable)
 }
 
 // 模态窗口_启动, 启动显示模态窗口, 当窗口关闭时返回: MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
 func (m *ModalWindow) DoModal() xcc.MessageBox_Flag_ {
-	return xc.XModalWnd_DoModal(m.Handle)
+	return xc.XModalWnd_DoModal(m.W句柄)
 }
 
 // 模态窗口_结束, 结束模态窗口.
 //
 // nResult: 用作XModalWnd_DoModal()的返回值. MessageBox_Flag_Ok: 点击确定按钮退出, MessageBox_Flag_Cancel: 点击取消按钮退出, MessageBox_Flag_Other: 其他方式退出.
 func (m *ModalWindow) EndModal(nResult xcc.MessageBox_Flag_) int {
-	return xc.XModalWnd_EndModal(m.Handle, nResult)
+	return xc.XModalWnd_EndModal(m.W句柄, nResult)
 }

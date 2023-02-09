@@ -22,14 +22,14 @@ type ShapeGif struct {
 // hParent: 父对象句柄.
 func NewShapeGif(x int, y int, cx int, cy int, hParent int) *ShapeGif {
 	p := &ShapeGif{}
-	p.SetHandle(xc.XShapeGif_Create(x, y, cx, cy, hParent))
+	p.W置句柄(xc.XShapeGif_Create(x, y, cx, cy, hParent))
 	return p
 }
 
 // 从句柄创建对象.
 func NewShapeGifByHandle(handle int) *ShapeGif {
 	p := &ShapeGif{}
-	p.SetHandle(handle)
+	p.W置句柄(handle)
 	return p
 }
 
@@ -38,7 +38,7 @@ func NewShapeGifByName(name string) *ShapeGif {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &ShapeGif{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -49,7 +49,7 @@ func NewShapeGifByUID(nUID int) *ShapeGif {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &ShapeGif{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -60,7 +60,7 @@ func NewShapeGifByUIDName(name string) *ShapeGif {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &ShapeGif{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -70,10 +70,10 @@ func NewShapeGifByUIDName(name string) *ShapeGif {
 //
 // hImage: 图片句柄.
 func (s *ShapeGif) SetImage(hImage int) int {
-	return xc.XShapeGif_SetImage(s.Handle, hImage)
+	return xc.XShapeGif_SetImage(s.W句柄, hImage)
 }
 
 // 形状GIF_取图片, 获取图片句柄.
 func (s *ShapeGif) GetImage() int {
-	return xc.XShapeGif_GetImage(s.Handle)
+	return xc.XShapeGif_GetImage(s.W句柄)
 }

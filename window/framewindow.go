@@ -27,7 +27,7 @@ type FrameWindow struct {
 // XCStyle: GUI库窗口样式: Window_Style_.
 func NewFrameWindow(x int, y int, cx int, cy int, pTitle string, hWndParent int, XCStyle xcc.Window_Style_) *FrameWindow {
 	p := &FrameWindow{}
-	p.SetHandle(xc.XFrameWnd_Create(x, y, cx, cy, pTitle, hWndParent, XCStyle))
+	p.W置句柄(xc.XFrameWnd_Create(x, y, cx, cy, pTitle, hWndParent, XCStyle))
 	return p
 }
 
@@ -54,14 +54,14 @@ func NewFrameWindow(x int, y int, cx int, cy int, pTitle string, hWndParent int,
 // XCStyle: GUI库窗口样式: Window_Style_.
 func NewFrameWindowEx(dwExStyle int, dwStyle int, lpClassName string, x int, y int, cx int, cy int, pTitle string, hWndParent int, XCStyle xcc.Window_Style_) *FrameWindow {
 	p := &FrameWindow{}
-	p.SetHandle(xc.XFrameWnd_CreateEx(dwExStyle, dwStyle, lpClassName, x, y, cx, cy, pTitle, hWndParent, XCStyle))
+	p.W置句柄(xc.XFrameWnd_CreateEx(dwExStyle, dwStyle, lpClassName, x, y, cx, cy, pTitle, hWndParent, XCStyle))
 	return p
 }
 
 // 从句柄创建对象.
 func NewFrameWindowByHandle(handle int) *FrameWindow {
 	p := &FrameWindow{}
-	p.SetHandle(handle)
+	p.W置句柄(handle)
 	return p
 }
 
@@ -70,7 +70,7 @@ func NewFrameWindowByName(name string) *FrameWindow {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &FrameWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -81,7 +81,7 @@ func NewFrameWindowByUID(nUID int) *FrameWindow {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &FrameWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -92,7 +92,7 @@ func NewFrameWindowByUIDName(name string) *FrameWindow {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &FrameWindow{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -102,35 +102,35 @@ func NewFrameWindowByUIDName(name string) *FrameWindow {
 //
 // pRect: 返回坐标.
 func (fw *FrameWindow) GetLayoutAreaRect(pRect *xc.RECT) int {
-	return xc.XFrameWnd_GetLayoutAreaRect(fw.Handle, pRect)
+	return xc.XFrameWnd_GetLayoutAreaRect(fw.W句柄, pRect)
 }
 
 // 框架窗口_置视图, 设置窗格组TabBar高度.
 //
 // hEle: 元素句柄.
 func (fw *FrameWindow) SetView(hEle int) int {
-	return xc.XFrameWnd_SetView(fw.Handle, hEle)
+	return xc.XFrameWnd_SetView(fw.W句柄, hEle)
 }
 
 // 框架窗口_置窗格分隔条颜色.
 //
 // color: ABGR 颜色值.
 func (fw *FrameWindow) SetPaneSplitBarColor(color int) int {
-	return xc.XFrameWnd_SetPaneSplitBarColor(fw.Handle, color)
+	return xc.XFrameWnd_SetPaneSplitBarColor(fw.W句柄, color)
 }
 
 // 框架窗口_置TabBar条高度, 设置窗格组TabBar高度.
 //
 // nHeight: 高度.
 func (fw *FrameWindow) SetTabBarHeight(nHeight int) int {
-	return xc.XFrameWnd_SetTabBarHeight(fw.Handle, nHeight)
+	return xc.XFrameWnd_SetTabBarHeight(fw.W句柄, nHeight)
 }
 
 // 框架窗口_保存布局到文件, 保存布局信息到文件.
 //
 // pFileName: 文件名，如果文件名为空，将使用默认文件名frameWnd_layout.xml.
 func (fw *FrameWindow) SaveLayoutToFile(pFileName string) bool {
-	return xc.XFrameWnd_SaveLayoutToFile(fw.Handle, pFileName)
+	return xc.XFrameWnd_SaveLayoutToFile(fw.W句柄, pFileName)
 }
 
 // 框架窗口_加载布局信息文件, 加载布局信息文件.
@@ -141,7 +141,7 @@ func (fw *FrameWindow) SaveLayoutToFile(pFileName string) bool {
 //
 // pFileName: 文件名，如果文件名为空，将使用默认文件名frameWnd_layout.xml.
 func (fw *FrameWindow) LoadLayoutFile(aPaneList []int, nPaneCount int, pFileName string) bool {
-	return xc.XFrameWnd_LoadLayoutFile(fw.Handle, aPaneList, nPaneCount, pFileName)
+	return xc.XFrameWnd_LoadLayoutFile(fw.W句柄, aPaneList, nPaneCount, pFileName)
 }
 
 // 框架窗口_添加窗格, 添加窗格到框架窗口.
@@ -152,7 +152,7 @@ func (fw *FrameWindow) LoadLayoutFile(aPaneList []int, nPaneCount int, pFileName
 //
 // align: 对齐方式, Pane_Align_.
 func (fw *FrameWindow) AddPane(hPaneDest int, hPaneNew int, align xcc.Pane_Align_) bool {
-	return xc.XFrameWnd_AddPane(fw.Handle, hPaneDest, hPaneNew, align)
+	return xc.XFrameWnd_AddPane(fw.W句柄, hPaneDest, hPaneNew, align)
 }
 
 // 框架窗口_合并窗格.
@@ -161,12 +161,12 @@ func (fw *FrameWindow) AddPane(hPaneDest int, hPaneNew int, align xcc.Pane_Align
 //
 // hPaneNew: 当前窗格.
 func (fw *FrameWindow) MergePane(hPaneDest int, hPaneNew int) bool {
-	return xc.XFrameWnd_MergePane(fw.Handle, hPaneDest, hPaneNew)
+	return xc.XFrameWnd_MergePane(fw.W句柄, hPaneDest, hPaneNew)
 }
 
 // 框架窗口_取拖动浮动窗格停留位置标识, 返回 拖动窗格 所处框架窗口单元格标识: xcc.FrameWnd_Cell_Type_.
 func (fw *FrameWindow) GetDragFloatWndTopFlag() xcc.FrameWnd_Cell_Type_ {
-	return xc.XFrameWnd_GetDragFloatWndTopFlag(fw.Handle)
+	return xc.XFrameWnd_GetDragFloatWndTopFlag(fw.W句柄)
 }
 
 // 框架窗口_附加窗口, 返回窗口对象.
@@ -176,6 +176,6 @@ func (fw *FrameWindow) GetDragFloatWndTopFlag() xcc.FrameWnd_Cell_Type_ {
 // XCStyle: 炫彩窗口样式: Window_Style_.
 func FrameWnd_Attach(hWnd, XCStyle int) *Window {
 	p := &Window{}
-	p.SetHandle(xc.XFrameWnd_Attach(hWnd, XCStyle))
+	p.W置句柄(xc.XFrameWnd_Attach(hWnd, XCStyle))
 	return p
 }

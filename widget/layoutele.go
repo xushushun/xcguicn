@@ -20,7 +20,7 @@ type LayoutEle struct {
 //	@return *LayoutEle
 func NewLayoutEle(x int, y int, cx int, cy int, hParent int) *LayoutEle {
 	p := &LayoutEle{}
-	p.SetHandle(xc.XLayout_Create(x, y, cx, cy, hParent))
+	p.W置句柄(xc.XLayout_Create(x, y, cx, cy, hParent))
 	return p
 }
 
@@ -30,7 +30,7 @@ func NewLayoutEle(x int, y int, cx int, cy int, hParent int) *LayoutEle {
 //	@return *LayoutEle
 func NewLayoutEleEx(hParent int) *LayoutEle {
 	p := &LayoutEle{}
-	p.SetHandle(xc.XLayout_CreateEx(hParent))
+	p.W置句柄(xc.XLayout_CreateEx(hParent))
 	return p
 }
 
@@ -40,7 +40,7 @@ func NewLayoutEleEx(hParent int) *LayoutEle {
 //	@return *LayoutEle
 func NewLayoutEleByHandle(handle int) *LayoutEle {
 	p := &LayoutEle{}
-	p.SetHandle(handle)
+	p.W置句柄(handle)
 	return p
 }
 
@@ -54,7 +54,7 @@ func NewLayoutEleByLayout(pFileName string, hParent int, hAttachWnd int) *Layout
 	handle := xc.XC_LoadLayout(pFileName, hParent, hAttachWnd)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -72,7 +72,7 @@ func NewLayoutEleByLayoutZip(pZipFileName string, pFileName string, pPassword st
 	handle := xc.XC_LoadLayoutZip(pZipFileName, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -90,7 +90,7 @@ func NewLayoutEleByLayoutZipMem(data []byte, pFileName string, pPassword string,
 	handle := xc.XC_LoadLayoutZipMem(data, pFileName, pPassword, hParent, hAttachWnd)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -106,7 +106,7 @@ func NewLayoutEleByStringW(pStringXML string, hParent int, hAttachWnd int) *Layo
 	handle := xc.XC_LoadLayoutFromStringW(pStringXML, hParent, hAttachWnd)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -124,7 +124,7 @@ func NewLayoutEleByLayoutEx(pFileName, pPrefixName string, hParent int, hParentW
 	handle := xc.XC_LoadLayoutEx(pFileName, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -144,7 +144,7 @@ func NewLayoutEleByLayoutZipEx(pZipFileName string, pFileName string, pPassword,
 	handle := xc.XC_LoadLayoutZipEx(pZipFileName, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -164,7 +164,7 @@ func NewLayoutEleByLayoutZipMemEx(data []byte, pFileName string, pPassword, pPre
 	handle := xc.XC_LoadLayoutZipMemEx(data, pFileName, pPassword, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -182,7 +182,7 @@ func NewLayoutEleByStringWEx(pStringXML, pPrefixName string, hParent int, hParen
 	handle := xc.XC_LoadLayoutFromStringWEx(pStringXML, pPrefixName, hParent, hParentWnd, hAttachWnd)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -196,7 +196,7 @@ func NewLayoutEleByName(name string) *LayoutEle {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -210,7 +210,7 @@ func NewLayoutEleByUID(nUID int) *LayoutEle {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -224,7 +224,7 @@ func NewLayoutEleByUIDName(name string) *LayoutEle {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &LayoutEle{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -234,7 +234,7 @@ func NewLayoutEleByUIDName(name string) *LayoutEle {
 //
 //	@return bool
 func (l *LayoutEle) IsEnableLayout() bool {
-	return xc.XLayout_IsEnableLayout(l.Handle)
+	return xc.XLayout_IsEnableLayout(l.W句柄)
 }
 
 // EnableLayout 布局_启用, 启用布局功能.
@@ -242,7 +242,7 @@ func (l *LayoutEle) IsEnableLayout() bool {
 //	@param bEnable 是否启用.
 //	@return int
 func (l *LayoutEle) EnableLayout(bEnable bool) int {
-	return xc.XLayout_EnableLayout(l.Handle, bEnable)
+	return xc.XLayout_EnableLayout(l.W句柄, bEnable)
 }
 
 // ShowLayoutFrame 布局_显示布局边界, 显示布局边界.
@@ -250,21 +250,21 @@ func (l *LayoutEle) EnableLayout(bEnable bool) int {
 //	@param bEnable 是否显示.
 //	@return int
 func (l *LayoutEle) ShowLayoutFrame(bEnable bool) int {
-	return xc.XLayout_ShowLayoutFrame(l.Handle, bEnable)
+	return xc.XLayout_ShowLayoutFrame(l.W句柄, bEnable)
 }
 
 // GetWidthIn 布局_取内宽度, 获取宽度,不包含内边距大小.
 //
 //	@return int
 func (l *LayoutEle) GetWidthIn() int {
-	return xc.XLayout_GetWidthIn(l.Handle)
+	return xc.XLayout_GetWidthIn(l.W句柄)
 }
 
 // GetHeightIn 布局_取内高度, 获取高度,不包含内边距大小.
 //
 //	@return int
 func (l *LayoutEle) GetHeightIn() int {
-	return xc.XLayout_GetHeightIn(l.Handle)
+	return xc.XLayout_GetHeightIn(l.W句柄)
 }
 
 /*
@@ -276,7 +276,7 @@ LayoutBox-布局盒子
 //	@param bEnable 是否启用.
 //	@return int
 func (l *LayoutEle) EnableHorizon(bEnable bool) int {
-	return xc.XLayoutBox_EnableHorizon(l.Handle, bEnable)
+	return xc.XLayoutBox_EnableHorizon(l.W句柄, bEnable)
 }
 
 // EnableAutoWrap 布局盒子_启用自动换行.
@@ -284,7 +284,7 @@ func (l *LayoutEle) EnableHorizon(bEnable bool) int {
 //	@param bEnable 是否启用.
 //	@return int
 func (l *LayoutEle) EnableAutoWrap(bEnable bool) int {
-	return xc.XLayoutBox_EnableAutoWrap(l.Handle, bEnable)
+	return xc.XLayoutBox_EnableAutoWrap(l.W句柄, bEnable)
 }
 
 // EnableOverflowHide 布局盒子_启用溢出隐藏.
@@ -292,7 +292,7 @@ func (l *LayoutEle) EnableAutoWrap(bEnable bool) int {
 //	@param bEnable 是否启用.
 //	@return int
 func (l *LayoutEle) EnableOverflowHide(bEnable bool) int {
-	return xc.XLayoutBox_EnableOverflowHide(l.Handle, bEnable)
+	return xc.XLayoutBox_EnableOverflowHide(l.W句柄, bEnable)
 }
 
 // SetAlignH 布局盒子_置水平对齐.
@@ -300,7 +300,7 @@ func (l *LayoutEle) EnableOverflowHide(bEnable bool) int {
 //	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
 func (l *LayoutEle) SetAlignH(nAlign xcc.Layout_Align_) int {
-	return xc.XLayoutBox_SetAlignH(l.Handle, nAlign)
+	return xc.XLayoutBox_SetAlignH(l.W句柄, nAlign)
 }
 
 // SetAlignV 布局盒子_置垂直对齐.
@@ -308,7 +308,7 @@ func (l *LayoutEle) SetAlignH(nAlign xcc.Layout_Align_) int {
 //	@param nAlign 对齐方式: xcc.Layout_Align_.
 //	@return int
 func (l *LayoutEle) SetAlignV(nAlign xcc.Layout_Align_) int {
-	return xc.XLayoutBox_SetAlignV(l.Handle, nAlign)
+	return xc.XLayoutBox_SetAlignV(l.W句柄, nAlign)
 }
 
 // SetAlignBaseline 布局盒子_置对齐基线.
@@ -316,7 +316,7 @@ func (l *LayoutEle) SetAlignV(nAlign xcc.Layout_Align_) int {
 //	@param nAlign 对齐方式: xcc.Layout_Align_Axis_.
 //	@return int
 func (l *LayoutEle) SetAlignBaseline(nAlign xcc.Layout_Align_Axis_) int {
-	return xc.XLayoutBox_SetAlignBaseline(l.Handle, nAlign)
+	return xc.XLayoutBox_SetAlignBaseline(l.W句柄, nAlign)
 }
 
 // SetSpace 布局盒子_置间距.
@@ -324,7 +324,7 @@ func (l *LayoutEle) SetAlignBaseline(nAlign xcc.Layout_Align_Axis_) int {
 //	@param nSpace 项间距大小.
 //	@return int
 func (l *LayoutEle) SetSpace(nSpace int) int {
-	return xc.XLayoutBox_SetSpace(l.Handle, nSpace)
+	return xc.XLayoutBox_SetSpace(l.W句柄, nSpace)
 }
 
 // SetSpaceRow 布局盒子_置行距.
@@ -332,5 +332,5 @@ func (l *LayoutEle) SetSpace(nSpace int) int {
 //	@param nSpace 行间距大小.
 //	@return int
 func (l *LayoutEle) SetSpaceRow(nSpace int) int {
-	return xc.XLayoutBox_SetSpaceRow(l.Handle, nSpace)
+	return xc.XLayoutBox_SetSpaceRow(l.W句柄, nSpace)
 }

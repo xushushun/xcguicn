@@ -7,7 +7,7 @@ import (
 
 // AnimaItem 动画项.
 type AnimaItem struct {
-	objectbase.ObjectBase
+	基.W基本
 }
 
 // 动画项_启用完成释放, 当动画项完成后自动释放.
@@ -16,31 +16,31 @@ type AnimaItem struct {
 //
 // bEnable: 是否启用.
 func (a *AnimaItem) EnableCompleteRelease(bEnable bool) int {
-	return xc.XAnimaItem_EnableCompleteRelease(a.Handle, bEnable)
+	return xc.XAnimaItem_EnableCompleteRelease(a.W句柄, bEnable)
 }
 
 // 动画项_置回调.
 //
 // callback: 回调函数.
 func (a *AnimaItem) SetCallback(callback interface{}) int {
-	return xc.XAnimaItem_SetCallback(a.Handle, callback)
+	return xc.XAnimaItem_SetCallback(a.W句柄, callback)
 }
 
 // 动画项_置用户数据.
 //
 // nUserData: 用户数据.
 func (a *AnimaItem) SetUserData(nUserData int) int {
-	return xc.XAnimaItem_SetUserData(a.Handle, nUserData)
+	return xc.XAnimaItem_SetUserData(a.W句柄, nUserData)
 }
 
 // 动画项_取用户数据, 返回用户数据.
 func (a *AnimaItem) GetUserData() int {
-	return xc.XAnimaItem_GetUserData(a.Handle)
+	return xc.XAnimaItem_GetUserData(a.W句柄)
 }
 
 // 动画项_启用自动销毁.
 //
 // bEnable: 是否启用.
 func (a *AnimaItem) EnableAutoDestroy(bEnable bool) int {
-	return xc.XAnimaItem_EnableAutoDestroy(a.Handle, bEnable)
+	return xc.XAnimaItem_EnableAutoDestroy(a.W句柄, bEnable)
 }

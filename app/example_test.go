@@ -22,6 +22,6 @@ func ExampleNew() {
 func ExampleApp_ShowAndRun() {
 	a := app.New(true)
 	w := window.New(0, 0, 500, 500, "", 0, xcc.Window_Style_Default)
-	a.ShowAndRun(w.Handle)
+	a.ShowAndRun(w.W句柄)
 	a.Exit()
 }

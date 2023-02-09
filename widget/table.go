@@ -23,14 +23,14 @@ type Table struct {
 // hParent: 父为窗口句柄或元素句柄.
 func NewTable(x int, y int, cx int, cy int, hParent int) *Table {
 	p := &Table{}
-	p.SetHandle(xc.XTable_Create(x, y, cx, cy, hParent))
+	p.W置句柄(xc.XTable_Create(x, y, cx, cy, hParent))
 	return p
 }
 
 // 从句柄创建对象.
 func NewTableByHandle(handle int) *Table {
 	p := &Table{}
-	p.SetHandle(handle)
+	p.W置句柄(handle)
 	return p
 }
 
@@ -39,7 +39,7 @@ func NewTableByName(name string) *Table {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &Table{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -50,7 +50,7 @@ func NewTableByUID(nUID int) *Table {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &Table{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -61,7 +61,7 @@ func NewTableByUIDName(name string) *Table {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &Table{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -73,7 +73,7 @@ func NewTableByUIDName(name string) *Table {
 //
 // nCol: 列数量.
 func (t *Table) Reset(nRow int, nCol int) int {
-	return xc.XTable_Reset(t.Handle, nRow, nCol)
+	return xc.XTable_Reset(t.W句柄, nRow, nCol)
 }
 
 // 表格_组合行.
@@ -84,7 +84,7 @@ func (t *Table) Reset(nRow int, nCol int) int {
 //
 // count: 数量.
 func (t *Table) ComboRow(iRow int, iCol int, count int) int {
-	return xc.XTable_ComboRow(t.Handle, iRow, iCol, count)
+	return xc.XTable_ComboRow(t.W句柄, iRow, iCol, count)
 }
 
 // 表格_组合列.
@@ -95,7 +95,7 @@ func (t *Table) ComboRow(iRow int, iCol int, count int) int {
 //
 // count: 数量.
 func (t *Table) ComboCol(iRow int, iCol int, count int) int {
-	return xc.XTable_ComboCol(t.Handle, iRow, iCol, count)
+	return xc.XTable_ComboCol(t.W句柄, iRow, iCol, count)
 }
 
 // 表格_置列宽.
@@ -104,7 +104,7 @@ func (t *Table) ComboCol(iRow int, iCol int, count int) int {
 //
 // width: 宽度.
 func (t *Table) SetColWidth(iCol int, width int) int {
-	return xc.XTable_SetColWidth(t.Handle, iCol, width)
+	return xc.XTable_SetColWidth(t.W句柄, iCol, width)
 }
 
 // 表格_置行高.
@@ -113,28 +113,28 @@ func (t *Table) SetColWidth(iCol int, width int) int {
 //
 // height: 高度.
 func (t *Table) SetRowHeight(iRow int, height int) int {
-	return xc.XTable_SetRowHeight(t.Handle, iRow, height)
+	return xc.XTable_SetRowHeight(t.W句柄, iRow, height)
 }
 
 // 表格_置边颜色.
 //
 // color: 颜色.
 func (t *Table) SetBorderColor(color int) int {
-	return xc.XTable_SetBorderColor(t.Handle, color)
+	return xc.XTable_SetBorderColor(t.W句柄, color)
 }
 
 // 表格_置文本颜色.
 //
 // color: 颜色.
 func (t *Table) SetTextColor(color int) int {
-	return xc.XTable_SetTextColor(t.Handle, color)
+	return xc.XTable_SetTextColor(t.W句柄, color)
 }
 
 // 表格_置字体.
 //
 // hFont: 字体句柄.
 func (t *Table) SetFont(hFont int) int {
-	return xc.XTable_SetFont(t.Handle, hFont)
+	return xc.XTable_SetFont(t.W句柄, hFont)
 }
 
 // 表格_置项内填充.
@@ -147,7 +147,7 @@ func (t *Table) SetFont(hFont int) int {
 //
 // bottomSize: 内填充大小.
 func (t *Table) SetItemPadding(leftSize int, topSize int, rightSize int, bottomSize int) int {
-	return xc.XTable_SetItemPadding(t.Handle, leftSize, topSize, rightSize, bottomSize)
+	return xc.XTable_SetItemPadding(t.W句柄, leftSize, topSize, rightSize, bottomSize)
 }
 
 // 表格_置项文本.
@@ -158,7 +158,7 @@ func (t *Table) SetItemPadding(leftSize int, topSize int, rightSize int, bottomS
 //
 // pText: 文本.
 func (t *Table) SetItemText(iRow int, iCol int, pText string) int {
-	return xc.XTable_SetItemText(t.Handle, iRow, iCol, pText)
+	return xc.XTable_SetItemText(t.W句柄, iRow, iCol, pText)
 }
 
 // 表格_置项字体.
@@ -169,7 +169,7 @@ func (t *Table) SetItemText(iRow int, iCol int, pText string) int {
 //
 // hFont: 字体句柄.
 func (t *Table) SetItemFont(iRow int, iCol int, hFont int) int {
-	return xc.XTable_SetItemFont(t.Handle, iRow, iCol, hFont)
+	return xc.XTable_SetItemFont(t.W句柄, iRow, iCol, hFont)
 }
 
 // 表格_置项文本对齐.
@@ -180,7 +180,7 @@ func (t *Table) SetItemFont(iRow int, iCol int, hFont int) int {
 //
 // nAlign: 对齐方式, TextFormatFlag_, TextAlignFlag_, TextTrimming_.
 func (t *Table) SetItemTextAlign(iRow int, iCol int, nAlign xcc.TextFormatFlag_) int {
-	return xc.XTable_SetItemTextAlign(t.Handle, iRow, iCol, nAlign)
+	return xc.XTable_SetItemTextAlign(t.W句柄, iRow, iCol, nAlign)
 }
 
 // 表格_置项文本色.
@@ -193,7 +193,7 @@ func (t *Table) SetItemTextAlign(iRow int, iCol int, nAlign xcc.TextFormatFlag_)
 //
 // bColor: 是否使用.
 func (t *Table) SetItemTextColor(iRow int, iCol int, color int, bColor bool) int {
-	return xc.XTable_SetItemTextColor(t.Handle, iRow, iCol, color, bColor)
+	return xc.XTable_SetItemTextColor(t.W句柄, iRow, iCol, color, bColor)
 }
 
 // 表格_置项背景色.
@@ -206,7 +206,7 @@ func (t *Table) SetItemTextColor(iRow int, iCol int, color int, bColor bool) int
 //
 // bColor: 是否使用.
 func (t *Table) SetItemBkColor(iRow int, iCol int, color int, bColor bool) int {
-	return xc.XTable_SetItemBkColor(t.Handle, iRow, iCol, color, bColor)
+	return xc.XTable_SetItemBkColor(t.W句柄, iRow, iCol, color, bColor)
 }
 
 // 表格_置项线.
@@ -223,7 +223,7 @@ func (t *Table) SetItemBkColor(iRow int, iCol int, color int, bColor bool) int {
 //
 // color: 颜色.
 func (t *Table) SetItemLine(iRow1 int, iCol1 int, iRow2 int, iCol2 int, nFlag int, color int) int {
-	return xc.XTable_SetItemLine(t.Handle, iRow1, iCol1, iRow2, iCol2, nFlag, color)
+	return xc.XTable_SetItemLine(t.W句柄, iRow1, iCol1, iRow2, iCol2, nFlag, color)
 }
 
 // 表格_置项标识.
@@ -234,7 +234,7 @@ func (t *Table) SetItemLine(iRow1 int, iCol1 int, iRow2 int, iCol2 int, nFlag in
 //
 // flag: 标识, Table_Flag_.
 func (t *Table) SetItemFlag(iRow int, iCol int, flag xcc.Table_Flag_) int {
-	return xc.XTable_SetItemFlag(t.Handle, iRow, iCol, flag)
+	return xc.XTable_SetItemFlag(t.W句柄, iRow, iCol, flag)
 }
 
 // 表格_取项坐标.
@@ -245,5 +245,5 @@ func (t *Table) SetItemFlag(iRow int, iCol int, flag xcc.Table_Flag_) int {
 //
 // pRect: 接收返回坐标.
 func (t *Table) GetItemRect(iRow int, iCol int, pRect *xc.RECT) bool {
-	return xc.XTable_GetItemRect(t.Handle, iRow, iCol, pRect)
+	return xc.XTable_GetItemRect(t.W句柄, iRow, iCol, pRect)
 }

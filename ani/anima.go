@@ -17,7 +17,7 @@ type Anima struct {
 // nLoopCount: 动画循环次数, 0: 无限循环.
 func NewAnima(hObjectUI int, nLoopCount int) *Anima {
 	p := &Anima{}
-	p.SetHandle(xc.XAnima_Create(hObjectUI, nLoopCount))
+	p.W置句柄(xc.XAnima_Create(hObjectUI, nLoopCount))
 	return p
 }
 
@@ -36,7 +36,7 @@ func NewAnima(hObjectUI int, nLoopCount int) *Anima {
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) Move(duration int, x float32, y float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_Move(a.Handle, duration, x, y, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_Move(a.W句柄, duration, x, y, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -59,7 +59,7 @@ func (a *Anima) Move(duration int, x float32, y float32, nLoopCount int, ease_fl
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) MoveEx(duration int, from_x float32, from_y float32, to_x float32, to_y float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_MoveEx(a.Handle, duration, from_x, from_y, to_x, to_y, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_MoveEx(a.W句柄, duration, from_x, from_y, to_x, to_y, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -76,7 +76,7 @@ func (a *Anima) MoveEx(duration int, from_x float32, from_y float32, to_x float3
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) Rotate(duration int, angle float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaRotate {
 	p := &AnimaRotate{}
-	p.SetHandle(xc.XAnima_Rotate(a.Handle, duration, angle, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_Rotate(a.W句柄, duration, angle, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -95,7 +95,7 @@ func (a *Anima) Rotate(duration int, angle float32, nLoopCount int, ease_flag xc
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) RotateEx(duration int, from float32, to float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaRotate {
 	p := &AnimaRotate{}
-	p.SetHandle(xc.XAnima_RotateEx(a.Handle, duration, from, to, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_RotateEx(a.W句柄, duration, from, to, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -114,7 +114,7 @@ func (a *Anima) RotateEx(duration int, from float32, to float32, nLoopCount int,
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) Scale(duration int, scaleX float32, scaleY float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaScale {
 	p := &AnimaScale{}
-	p.SetHandle(xc.XAnima_Scale(a.Handle, duration, scaleX, scaleY, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_Scale(a.W句柄, duration, scaleX, scaleY, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -133,7 +133,7 @@ func (a *Anima) Scale(duration int, scaleX float32, scaleY float32, nLoopCount i
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) ScaleSize(duration int, width float32, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaScale {
 	p := &AnimaScale{}
-	p.SetHandle(xc.XAnima_ScaleSize(a.Handle, duration, width, height, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_ScaleSize(a.W句柄, duration, width, height, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -150,7 +150,7 @@ func (a *Anima) ScaleSize(duration int, width float32, height float32, nLoopCoun
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) Alpha(duration int, alpha uint8, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_Alpha(a.Handle, duration, alpha, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_Alpha(a.W句柄, duration, alpha, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -169,7 +169,7 @@ func (a *Anima) Alpha(duration int, alpha uint8, nLoopCount int, ease_flag xcc.E
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) AlphaEx(duration int, from_alpha uint8, to_alpha uint8, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_AlphaEx(a.Handle, duration, from_alpha, to_alpha, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_AlphaEx(a.W句柄, duration, from_alpha, to_alpha, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -186,7 +186,7 @@ func (a *Anima) AlphaEx(duration int, from_alpha uint8, to_alpha uint8, nLoopCou
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) Color(duration int, color int, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_Color(a.Handle, duration, color, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_Color(a.W句柄, duration, color, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -205,7 +205,7 @@ func (a *Anima) Color(duration int, color int, nLoopCount int, ease_flag xcc.Eas
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) ColorEx(duration int, from int, to int, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_ColorEx(a.Handle, duration, from, to, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_ColorEx(a.W句柄, duration, from, to, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -224,7 +224,7 @@ func (a *Anima) ColorEx(duration int, from int, to int, nLoopCount int, ease_fla
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) LayoutWidth(duration int, nType xcc.Layout_Size_, width float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_LayoutWidth(a.Handle, duration, nType, width, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_LayoutWidth(a.W句柄, duration, nType, width, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -243,7 +243,7 @@ func (a *Anima) LayoutWidth(duration int, nType xcc.Layout_Size_, width float32,
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) LayoutHeight(duration int, nType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_LayoutHeight(a.Handle, duration, nType, height, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_LayoutHeight(a.W句柄, duration, nType, height, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -266,7 +266,7 @@ func (a *Anima) LayoutHeight(duration int, nType xcc.Layout_Size_, height float3
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) LayoutSize(duration int, nWidthType xcc.Layout_Size_, width float32, nHeightType xcc.Layout_Size_, height float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_LayoutSize(a.Handle, duration, nWidthType, width, nHeightType, height, nLoopCount, ease_flag, bGoBack))
+	p.W置句柄(xc.XAnima_LayoutSize(a.W句柄, duration, nWidthType, width, nHeightType, height, nLoopCount, ease_flag, bGoBack))
 	return p
 }
 
@@ -275,7 +275,7 @@ func (a *Anima) LayoutSize(duration int, nWidthType xcc.Layout_Size_, width floa
 // duration: 持续时间.
 func (a *Anima) Delay(duration float32) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_Delay(a.Handle, duration))
+	p.W置句柄(xc.XAnima_Delay(a.W句柄, duration))
 	return p
 }
 
@@ -286,7 +286,7 @@ func (a *Anima) Delay(duration float32) *AnimaItem {
 // bShow: 显示或隐藏.
 func (a *Anima) Show(duration float32, bShow bool) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_Show(a.Handle, duration, bShow))
+	p.W置句柄(xc.XAnima_Show(a.W句柄, duration, bShow))
 	return p
 }
 
@@ -295,7 +295,7 @@ func (a *Anima) Show(duration float32, bShow bool) *AnimaItem {
 // duration: 持续时间.
 func (a *Anima) DestroyObjectUI(duration float32) *AnimaItem {
 	p := &AnimaItem{}
-	p.SetHandle(xc.XAnima_DestroyObjectUI(a.Handle, duration))
+	p.W置句柄(xc.XAnima_DestroyObjectUI(a.W句柄, duration))
 	return p
 }
 
@@ -309,5 +309,5 @@ func (a *Anima) DestroyObjectUI(duration float32) *AnimaItem {
 //
 // bGoBack: 是否返回. 当启用后: 往返到起点, 起点->终点->起点.
 func (a *Anima) DelayEx(duration float32, nLoopCount int, ease_flag xcc.Ease_Flag_, bGoBack bool) int {
-	return xc.XAnima_DelayEx(a.Handle, duration, nLoopCount, ease_flag, bGoBack)
+	return xc.XAnima_DelayEx(a.W句柄, duration, nLoopCount, ease_flag, bGoBack)
 }

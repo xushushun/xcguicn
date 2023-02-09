@@ -23,14 +23,14 @@ type Editor struct {
 // hParent: 父为窗口句柄或元素句柄.
 func NewEditor(x int, y int, cx int, cy int, hParent int) *Editor {
 	p := &Editor{}
-	p.SetHandle(xc.XEditor_Create(x, y, cx, cy, hParent))
+	p.W置句柄(xc.XEditor_Create(x, y, cx, cy, hParent))
 	return p
 }
 
 // 从句柄创建对象.
 func NewEditorByHandle(handle int) *Editor {
 	p := &Editor{}
-	p.SetHandle(handle)
+	p.W置句柄(handle)
 	return p
 }
 
@@ -39,7 +39,7 @@ func NewEditorByName(name string) *Editor {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &Editor{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -50,7 +50,7 @@ func NewEditorByUID(nUID int) *Editor {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &Editor{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -61,7 +61,7 @@ func NewEditorByUIDName(name string) *Editor {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &Editor{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -71,14 +71,14 @@ func NewEditorByUIDName(name string) *Editor {
 //
 // bEnable: 是否启用.
 func (e *Editor) EnableAutoMatchSpaseSelect(bEnable bool) int {
-	return xc.XEidtor_EnableAutoMatchSpaseSelect(e.Handle, bEnable)
+	return xc.XEidtor_EnableAutoMatchSpaseSelect(e.W句柄, bEnable)
 }
 
 // 代码编辑框_判断断点.
 //
 // iRow: 行索引.
 func (e *Editor) IsBreakpoint(iRow int) bool {
-	return xc.XEditor_IsBreakpoint(e.Handle, iRow)
+	return xc.XEditor_IsBreakpoint(e.W句柄, iRow)
 }
 
 // 代码编辑框_置断点.
@@ -87,108 +87,108 @@ func (e *Editor) IsBreakpoint(iRow int) bool {
 //
 // bActivate: 是否激活.
 func (e *Editor) SetBreakpoint(iRow int, bActivate bool) bool {
-	return xc.XEditor_SetBreakpoint(e.Handle, iRow, bActivate)
+	return xc.XEditor_SetBreakpoint(e.W句柄, iRow, bActivate)
 }
 
 // 代码编辑框_移除断点.
 //
 // iRow: 行索引.
 func (e *Editor) RemoveBreakpoint(iRow int) bool {
-	return xc.XEditor_RemoveBreakpoint(e.Handle, iRow)
+	return xc.XEditor_RemoveBreakpoint(e.W句柄, iRow)
 }
 
 // 代码编辑框_清空断点.
 func (e *Editor) ClearBreakpoint() int {
-	return xc.XEditor_ClearBreakpoint(e.Handle)
+	return xc.XEditor_ClearBreakpoint(e.W句柄)
 }
 
 // 代码编辑框_置当前运行.
 //
 // iRow: 行索引.
 func (e *Editor) SetRunRow(iRow int) bool {
-	return xc.XEditor_SetRunRow(e.Handle, iRow)
+	return xc.XEditor_SetRunRow(e.W句柄, iRow)
 }
 
 // 代码编辑框_取颜色信息.
 //
 // pInfo: 颜色信息结构体指针.
 func (e *Editor) GetColor(pInfo *xc.Editor_Color_) int {
-	return xc.XEditor_GetColor(e.Handle, pInfo)
+	return xc.XEditor_GetColor(e.W句柄, pInfo)
 }
 
 // 代码编辑框_置颜色.
 //
 // pInfo: 颜色信息结构体指针.
 func (e *Editor) SetColor(pInfo *xc.Editor_Color_) int {
-	return xc.XEditor_SetColor(e.Handle, pInfo)
+	return xc.XEditor_SetColor(e.W句柄, pInfo)
 }
 
 // 代码编辑框_置常量样式.
 //
 // iStyle: 样式.
 func (e *Editor) SetStyleKeyword(iStyle int) int {
-	return xc.XEditor_SetStyleKeyword(e.Handle, iStyle)
+	return xc.XEditor_SetStyleKeyword(e.W句柄, iStyle)
 }
 
 // 代码编辑框_置函数样式.
 //
 // iStyle: 样式.
 func (e *Editor) SetStyleFunction(iStyle int) int {
-	return xc.XEditor_SetStyleFunction(e.Handle, iStyle)
+	return xc.XEditor_SetStyleFunction(e.W句柄, iStyle)
 }
 
 // 代码编辑框_置变量样式.
 //
 // iStyle: 样式.
 func (e *Editor) SetStyleVar(iStyle int) int {
-	return xc.XEditor_SetStyleVar(e.Handle, iStyle)
+	return xc.XEditor_SetStyleVar(e.W句柄, iStyle)
 }
 
 // 代码编辑框_置数据类型样式.
 //
 // iStyle: 样式.
 func (e *Editor) SetStyleDataType(iStyle int) int {
-	return xc.XEditor_SetStyleDataType(e.Handle, iStyle)
+	return xc.XEditor_SetStyleDataType(e.W句柄, iStyle)
 }
 
 // 代码编辑框_置类样式.
 //
 // iStyle: 样式.
 func (e *Editor) SetStyleClass(iStyle int) int {
-	return xc.XEditor_SetStyleClass(e.Handle, iStyle)
+	return xc.XEditor_SetStyleClass(e.W句柄, iStyle)
 }
 
 // 代码编辑框_置宏样式.
 //
 // iStyle: 样式.
 func (e *Editor) SetStyleMacro(iStyle int) int {
-	return xc.XEditor_SetStyleMacro(e.Handle, iStyle)
+	return xc.XEditor_SetStyleMacro(e.W句柄, iStyle)
 }
 
 // 代码编辑框_置字符串样式.
 //
 // iStyle: 样式.
 func (e *Editor) SetStyleString(iStyle int) int {
-	return xc.XEditor_SetStyleString(e.Handle, iStyle)
+	return xc.XEditor_SetStyleString(e.W句柄, iStyle)
 }
 
 // 代码编辑框_置注释样式.
 //
 // iStyle: 样式.
 func (e *Editor) SetStyleComment(iStyle int) int {
-	return xc.XEditor_SetStyleComment(e.Handle, iStyle)
+	return xc.XEditor_SetStyleComment(e.W句柄, iStyle)
 }
 
 // 代码编辑框_置数字样式.
 //
 // iStyle: 样式.
 func (e *Editor) SetStyleNumber(iStyle int) int {
-	return xc.XEditor_SetStyleNumber(e.Handle, iStyle)
+	return xc.XEditor_SetStyleNumber(e.W句柄, iStyle)
 }
 
 // 代码编辑框_取断点数量.
 func (e *Editor) GetBreakpointCount() int {
-	return xc.XEditor_GetBreakpointCount(e.Handle)
+	return xc.XEditor_GetBreakpointCount(e.W句柄)
 }
 
 // 代码编辑框_取全部断点, 返回实际获取断点数量.
@@ -197,42 +197,42 @@ func (e *Editor) GetBreakpointCount() int {
 //
 // nCount: 数组大小.
 func (e *Editor) GetBreakpoints(aPoints *[]int32, nCount int) int {
-	return xc.XEditor_GetBreakpoints(e.Handle, aPoints, nCount)
+	return xc.XEditor_GetBreakpoints(e.W句柄, aPoints, nCount)
 }
 
 // 代码编辑框_设置当前行, 跳过收缩行.
 //
 // iRow: 行索引.
 func (e *Editor) SetCurRow(iRow int) int {
-	return xc.XEditor_SetCurRow(e.Handle, iRow)
+	return xc.XEditor_SetCurRow(e.W句柄, iRow)
 }
 
 // 代码编辑框_获取深度.
 //
 // iRow: 行索引.
 func (e *Editor) GetDepth(iRow int) int {
-	return xc.XEditor_GetDepth(e.Handle, iRow)
+	return xc.XEditor_GetDepth(e.W句柄, iRow)
 }
 
 // 代码编辑框_转换到展开行, 跳过收缩行.
 //
 // iRow: 行索引.
 func (e *Editor) ToExpandRow(iRow int) int {
-	return xc.XEditor_ToExpandRow(e.Handle, iRow)
+	return xc.XEditor_ToExpandRow(e.W句柄, iRow)
 }
 
 // 代码编辑框_展开扩展, 完全展开指定行, 例如:行包含在折叠内容中, 将其展开.
 //
 // iRow: 行索引.
 func (e *Editor) ExpandEx(iRow int) int {
-	return xc.XEditor_ExpandEx(e.Handle, iRow)
+	return xc.XEditor_ExpandEx(e.W句柄, iRow)
 }
 
 // 代码编辑框_展开全部.
 //
 // bExpand: 是否展开.
 func (e *Editor) ExpandAll(bExpand bool) int {
-	return xc.XEditor_ExpandAll(e.Handle, bExpand)
+	return xc.XEditor_ExpandAll(e.W句柄, bExpand)
 }
 
 // 代码编辑框_展开指定行.
@@ -241,7 +241,7 @@ func (e *Editor) ExpandAll(bExpand bool) int {
 //
 // bExpand: 是否展开.
 func (e *Editor) Expand(iRow int, bExpand bool) int {
-	return xc.XEditor_Expand(e.Handle, iRow, bExpand)
+	return xc.XEditor_Expand(e.W句柄, iRow, bExpand)
 }
 
 // 代码编辑框_添加关键字.
@@ -250,61 +250,61 @@ func (e *Editor) Expand(iRow int, bExpand bool) int {
 //
 // iStyle: 样式.
 func (e *Editor) AddKeyword(pKey string, iStyle int) int {
-	return xc.XEditor_AddKeyword(e.Handle, pKey, iStyle)
+	return xc.XEditor_AddKeyword(e.W句柄, pKey, iStyle)
 }
 
 // 代码编辑框_添加自动匹配字符串.
 //
 // pKey: 字符串.
 func (e *Editor) AddConst(pKey string) int {
-	return xc.XEditor_AddConst(e.Handle, pKey)
+	return xc.XEditor_AddConst(e.W句柄, pKey)
 }
 
 // 代码编辑框_添加自动匹配函数.
 //
 // pKey: 字符串.
 func (e *Editor) AddFunction(pKey string) int {
-	return xc.XEditor_AddFunction(e.Handle, pKey)
+	return xc.XEditor_AddFunction(e.W句柄, pKey)
 }
 
 // 代码编辑框_添加排除定义变量关键字, 排除定义变量的关键字, 用于排除定义变量, 因为定义变量禁用自动匹配; 此关键字不加入自动匹配,仅用于排除定义变量.
 //
 // pKeyword: 字符串.
 func (e *Editor) AddExcludeDefVarKeyword(pKeyword string) int {
-	return xc.XEditor_AddExcludeDefVarKeyword(e.Handle, pKeyword)
+	return xc.XEditor_AddExcludeDefVarKeyword(e.W句柄, pKeyword)
 }
 
 // 代码编辑框_获取折叠状态.
 func (e *Editor) GetExpandState() string {
-	return xc.XEditor_GetExpandState(e.Handle)
+	return xc.XEditor_GetExpandState(e.W句柄)
 }
 
 // 代码编辑框_设置折叠状态.
 //
 // pString: .
 func (e *Editor) SetExpandState(pString string) int {
-	return xc.XEditor_SetExpandState(e.Handle, pString)
+	return xc.XEditor_SetExpandState(e.W句柄, pString)
 }
 
 // 代码编辑框_获取缩进.
 //
 // iRow: 行.
 func (e *Editor) GetIndentation(iRow int) int {
-	return xc.XEditor_GetIndentation(e.Handle, iRow)
+	return xc.XEditor_GetIndentation(e.W句柄, iRow)
 }
 
 // 代码编辑框_是否为空行.
 //
 // iRow: 行.
 func (e *Editor) IsEmptyRow(iRow int) int {
-	return xc.XEidtor_IsEmptyRow(e.Handle, iRow)
+	return xc.XEidtor_IsEmptyRow(e.W句柄, iRow)
 }
 
 // 代码编辑框_置自动匹配结果显示模式.
 //
 // mode: 0:中英文, 1:英文, 3:中文.
 func (e *Editor) SetAutoMatchMode(mode int) int {
-	return xc.XEditor_SetAutoMatchMode(e.Handle, mode)
+	return xc.XEditor_SetAutoMatchMode(e.W句柄, mode)
 }
 
 /*
@@ -322,40 +322,40 @@ type XE_EDITOR_AUTOMATCH_SELECT1 func(hEle int, iRow int, nRows int, pbHandled *
 
 // 多行内容改变事件 例如:区块注释操作, 区块缩进操作, 代码格式化.
 func (e *Editor) Event_EDITOR_MODIFY_ROWS(pFun XE_EDITOR_MODIFY_ROWS) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDITOR_MODIFY_ROWS, pFun)
+	return xc.XEle_RegEventC(e.W句柄, xcc.XE_EDITOR_MODIFY_ROWS, pFun)
 }
 
 // 多行内容改变事件 例如:区块注释操作, 区块缩进操作, 代码格式化.
 func (e *Editor) Event_EDITOR_MODIFY_ROWS1(pFun XE_EDITOR_MODIFY_ROWS1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDITOR_MODIFY_ROWS, pFun)
+	return xc.XEle_RegEventC1(e.W句柄, xcc.XE_EDITOR_MODIFY_ROWS, pFun)
 }
 
 // 代码编辑框_设置断点.
 func (e *Editor) Event_EDITOR_SETBREAKPOINT(pFun XE_EDITOR_SETBREAKPOINT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDITOR_SETBREAKPOINT, pFun)
+	return xc.XEle_RegEventC(e.W句柄, xcc.XE_EDITOR_SETBREAKPOINT, pFun)
 }
 
 // 代码编辑框_设置断点.
 func (e *Editor) Event_EDITOR_SETBREAKPOINT1(pFun XE_EDITOR_SETBREAKPOINT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDITOR_SETBREAKPOINT, pFun)
+	return xc.XEle_RegEventC1(e.W句柄, xcc.XE_EDITOR_SETBREAKPOINT, pFun)
 }
 
 // 代码编辑框_移除断点.
 func (e *Editor) Event_EDITOR_REMOVEBREAKPOINT(pFun XE_EDITOR_REMOVEBREAKPOINT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDITOR_REMOVEBREAKPOINT, pFun)
+	return xc.XEle_RegEventC(e.W句柄, xcc.XE_EDITOR_REMOVEBREAKPOINT, pFun)
 }
 
 // 代码编辑框_移除断点.
 func (e *Editor) Event_EDITOR_REMOVEBREAKPOINT1(pFun XE_EDITOR_REMOVEBREAKPOINT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDITOR_REMOVEBREAKPOINT, pFun)
+	return xc.XEle_RegEventC1(e.W句柄, xcc.XE_EDITOR_REMOVEBREAKPOINT, pFun)
 }
 
 // 代码编辑框_自动匹配选择.
 func (e *Editor) Event_EDITOR_AUTOMATCH_SELECT(pFun XE_EDITOR_AUTOMATCH_SELECT) bool {
-	return xc.XEle_RegEventC(e.Handle, xcc.XE_EDITOR_AUTOMATCH_SELECT, pFun)
+	return xc.XEle_RegEventC(e.W句柄, xcc.XE_EDITOR_AUTOMATCH_SELECT, pFun)
 }
 
 // 代码编辑框_自动匹配选择.
 func (e *Editor) Event_EDITOR_AUTOMATCH_SELECT1(pFun XE_EDITOR_AUTOMATCH_SELECT1) bool {
-	return xc.XEle_RegEventC1(e.Handle, xcc.XE_EDITOR_AUTOMATCH_SELECT, pFun)
+	return xc.XEle_RegEventC1(e.W句柄, xcc.XE_EDITOR_AUTOMATCH_SELECT, pFun)
 }

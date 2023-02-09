@@ -49,7 +49,7 @@ func TestClientToScreen(t *testing.T) {
 	wapi.ClientToScreen(w.GetHWND(), &pt)
 	fmt.Println(pt)
 
-	a.ShowAndRun(w.Handle)
+	a.ShowAndRun(w.W句柄)
 	a.Exit()
 }
 
@@ -57,13 +57,13 @@ func TestGetCursorPos(t *testing.T) {
 	a := app.New(true)
 	w := window.New(0, 0, 300, 300, "", 0, xcc.Window_Style_Default)
 
-	widget.NewButton(20, 50, 100, 30, "GetCursorPos", w.Handle).Event_BnClick(func(pbHandled *bool) int {
+	widget.W新按钮(20, 50, 100, 30, "GetCursorPos", w.W句柄).W事件按钮单击(func(pbHandled *bool) int {
 		var pt xc.POINT
 		wapi.GetCursorPos(&pt)
 		a.MessageBox("GetCursorPos", fmt.Sprintf("x: %d  y: %d", pt.X, pt.Y), xcc.MessageBox_Flag_Ok, w.GetHWND(), xcc.Window_Style_Default)
 		return 0
 	})
 
-	a.ShowAndRun(w.Handle)
+	a.ShowAndRun(w.W句柄)
 	a.Exit()
 }

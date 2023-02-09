@@ -22,14 +22,14 @@ type ShapeEllipse struct {
 // hParent: 父对象句柄.
 func NewShapeEllipse(x int, y int, cx int, cy int, hParent int) *ShapeEllipse {
 	p := &ShapeEllipse{}
-	p.SetHandle(xc.XShapeEllipse_Create(x, y, cx, cy, hParent))
+	p.W置句柄(xc.XShapeEllipse_Create(x, y, cx, cy, hParent))
 	return p
 }
 
 // 从句柄创建对象.
 func NewShapeEllipseByHandle(handle int) *ShapeEllipse {
 	p := &ShapeEllipse{}
-	p.SetHandle(handle)
+	p.W置句柄(handle)
 	return p
 }
 
@@ -38,7 +38,7 @@ func NewShapeEllipseByName(name string) *ShapeEllipse {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &ShapeEllipse{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -49,7 +49,7 @@ func NewShapeEllipseByUID(nUID int) *ShapeEllipse {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &ShapeEllipse{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -60,7 +60,7 @@ func NewShapeEllipseByUIDName(name string) *ShapeEllipse {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &ShapeEllipse{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -70,26 +70,26 @@ func NewShapeEllipseByUIDName(name string) *ShapeEllipse {
 //
 // color: ABGR 颜色值.
 func (s *ShapeEllipse) SetBorderColor(color int) int {
-	return xc.XShapeEllipse_SetBorderColor(s.Handle, color)
+	return xc.XShapeEllipse_SetBorderColor(s.W句柄, color)
 }
 
 // 形状圆_置填充色.
 //
 // color: ABGR 颜色值.
 func (s *ShapeEllipse) SetFillColor(color int) int {
-	return xc.XShapeEllipse_SetFillColor(s.Handle, color)
+	return xc.XShapeEllipse_SetFillColor(s.W句柄, color)
 }
 
 // 形状圆_启用边框, 启用绘制圆边框.
 //
 // bEnable: 是否启用.
 func (s *ShapeEllipse) EnableBorder(bEnable bool) int {
-	return xc.XShapeEllipse_EnableBorder(s.Handle, bEnable)
+	return xc.XShapeEllipse_EnableBorder(s.W句柄, bEnable)
 }
 
 // 形状圆_启用填充, 启用填充圆.
 //
 // bEnable: 是否启用.
 func (s *ShapeEllipse) EnableFill(bEnable bool) int {
-	return xc.XShapeEllipse_EnableFill(s.Handle, bEnable)
+	return xc.XShapeEllipse_EnableFill(s.W句柄, bEnable)
 }

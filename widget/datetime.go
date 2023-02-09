@@ -23,14 +23,14 @@ type DateTime struct {
 // hParent: 父为窗口句柄或元素句柄.
 func NewDateTime(x int, y int, cx int, cy int, hParent int) *DateTime {
 	p := &DateTime{}
-	p.SetHandle(xc.XDateTime_Create(x, y, cx, cy, hParent))
+	p.W置句柄(xc.XDateTime_Create(x, y, cx, cy, hParent))
 	return p
 }
 
 // 从句柄创建对象.
 func NewDateTimeByHandle(handle int) *DateTime {
 	p := &DateTime{}
-	p.SetHandle(handle)
+	p.W置句柄(handle)
 	return p
 }
 
@@ -39,7 +39,7 @@ func NewDateTimeByName(name string) *DateTime {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &DateTime{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -50,7 +50,7 @@ func NewDateTimeByUID(nUID int) *DateTime {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &DateTime{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -61,7 +61,7 @@ func NewDateTimeByUIDName(name string) *DateTime {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &DateTime{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -71,38 +71,38 @@ func NewDateTimeByUIDName(name string) *DateTime {
 //
 // nStyle: 样式: 0为日期元素, 1为时间元素.
 func (d *DateTime) SetStyle(nStyle int) int {
-	return xc.XDateTime_SetStyle(d.Handle, nStyle)
+	return xc.XDateTime_SetStyle(d.W句柄, nStyle)
 }
 
 // 日期_取样式, 返回元素样式.
 func (d *DateTime) GetStyle() int {
-	return xc.XDateTime_GetStyle(d.Handle)
+	return xc.XDateTime_GetStyle(d.W句柄)
 }
 
 // 日期_启用分割栏为斜线, 切换分割栏为: 斜线或横线.
 //
 // bSlash: TRUE: 斜线, FALSE: 横线.
 func (d *DateTime) EnableSplitSlash(bSlash bool) int {
-	return xc.XDateTime_EnableSplitSlash(d.Handle, bSlash)
+	return xc.XDateTime_EnableSplitSlash(d.W句柄, bSlash)
 }
 
 // 日期_取内部按钮, 获取内部按钮元素.
 //
 // nType: 按钮类型.
 func (d *DateTime) GetButton(nType int) int {
-	return xc.XDateTime_GetButton(d.Handle, nType)
+	return xc.XDateTime_GetButton(d.W句柄, nType)
 }
 
 // 日期_取选择日期背景颜色, 获取被选择文字的背景颜色.
 func (d *DateTime) GetSelBkColor() int {
-	return xc.XDateTime_GetSelBkColor(d.Handle)
+	return xc.XDateTime_GetSelBkColor(d.W句柄)
 }
 
 // 日期_置选择日期背景颜色, 设置被选择文字的背景颜色.
 //
 // crSelectBk: 文字被选中背景色, ABGR 颜色.
 func (d *DateTime) SetSelBkColor(crSelectBk int) int {
-	return xc.XDateTime_SetSelBkColor(d.Handle, crSelectBk)
+	return xc.XDateTime_SetSelBkColor(d.W句柄, crSelectBk)
 }
 
 // 日期_取当前日期.
@@ -113,7 +113,7 @@ func (d *DateTime) SetSelBkColor(crSelectBk int) int {
 //
 // pnDay: 日.[OUT].
 func (d *DateTime) GetDate(pnYear *int, pnMonth *int, pnDay *int) int {
-	return xc.XDateTime_GetDate(d.Handle, pnYear, pnMonth, pnDay)
+	return xc.XDateTime_GetDate(d.W句柄, pnYear, pnMonth, pnDay)
 }
 
 // 日期_置当前日期.
@@ -124,7 +124,7 @@ func (d *DateTime) GetDate(pnYear *int, pnMonth *int, pnDay *int) int {
 //
 // nDay: 日.
 func (d *DateTime) SetDate(nYear int, nMonth int, nDay int) int {
-	return xc.XDateTime_SetDate(d.Handle, nYear, nMonth, nDay)
+	return xc.XDateTime_SetDate(d.W句柄, nYear, nMonth, nDay)
 }
 
 // 日期_取当前时间.
@@ -135,7 +135,7 @@ func (d *DateTime) SetDate(nYear int, nMonth int, nDay int) int {
 //
 // pnSecond: 秒.[OUT].
 func (d *DateTime) GetTime(pnHour *int, pnMinute *int, pnSecond *int) int {
-	return xc.XDateTime_GetTime(d.Handle, pnHour, pnMinute, pnSecond)
+	return xc.XDateTime_GetTime(d.W句柄, pnHour, pnMinute, pnSecond)
 }
 
 // 日期_社区当前时间, 设置当前时分秒.
@@ -146,12 +146,12 @@ func (d *DateTime) GetTime(pnHour *int, pnMinute *int, pnSecond *int) int {
 //
 // nSecond: 秒.
 func (d *DateTime) SetTime(nHour int, nMinute int, nSecond int) int {
-	return xc.XDateTime_SetTime(d.Handle, nHour, nMinute, nSecond)
+	return xc.XDateTime_SetTime(d.W句柄, nHour, nMinute, nSecond)
 }
 
 // 日期_弹出, 弹出月历卡片.
 func (d *DateTime) Popup() int {
-	return xc.XDateTime_Popup(d.Handle)
+	return xc.XDateTime_Popup(d.W句柄)
 }
 
 /*
@@ -167,30 +167,30 @@ type XE_DATETIME_EXIT_MONTHCAL1 func(hEle int, hMonthCalWnd int, hMonthCal int, 
 
 // 日期时间元素,内容改变事件.
 func (d *DateTime) Event_DATETIME_CHANGE(pFun XE_DATETIME_CHANGE) bool {
-	return xc.XEle_RegEventC(d.Handle, xcc.XE_DATETIME_CHANGE, pFun)
+	return xc.XEle_RegEventC(d.W句柄, xcc.XE_DATETIME_CHANGE, pFun)
 }
 
 // 日期时间元素,内容改变事件.
 func (d *DateTime) Event_DATETIME_CHANGE1(pFun XE_DATETIME_CHANGE1) bool {
-	return xc.XEle_RegEventC1(d.Handle, xcc.XE_DATETIME_CHANGE, pFun)
+	return xc.XEle_RegEventC1(d.W句柄, xcc.XE_DATETIME_CHANGE, pFun)
 }
 
 // 日期时间元素,弹出月历卡片事件.
 func (d *DateTime) Event_DATETIME_POPUP_MONTHCAL(pFun XE_DATETIME_POPUP_MONTHCAL) bool {
-	return xc.XEle_RegEventC(d.Handle, xcc.XE_DATETIME_POPUP_MONTHCAL, pFun)
+	return xc.XEle_RegEventC(d.W句柄, xcc.XE_DATETIME_POPUP_MONTHCAL, pFun)
 }
 
 // 日期时间元素,弹出月历卡片事件.
 func (d *DateTime) Event_DATETIME_POPUP_MONTHCAL1(pFun XE_DATETIME_POPUP_MONTHCAL1) bool {
-	return xc.XEle_RegEventC1(d.Handle, xcc.XE_DATETIME_POPUP_MONTHCAL, pFun)
+	return xc.XEle_RegEventC1(d.W句柄, xcc.XE_DATETIME_POPUP_MONTHCAL, pFun)
 }
 
 // 日期时间元素,弹出的月历卡片退出事件.
 func (d *DateTime) Event_DATETIME_EXIT_MONTHCAL(pFun XE_DATETIME_EXIT_MONTHCAL) bool {
-	return xc.XEle_RegEventC(d.Handle, xcc.XE_DATETIME_EXIT_MONTHCAL, pFun)
+	return xc.XEle_RegEventC(d.W句柄, xcc.XE_DATETIME_EXIT_MONTHCAL, pFun)
 }
 
 // 日期时间元素,弹出的月历卡片退出事件.
 func (d *DateTime) Event_DATETIME_EXIT_MONTHCAL1(pFun XE_DATETIME_EXIT_MONTHCAL1) bool {
-	return xc.XEle_RegEventC1(d.Handle, xcc.XE_DATETIME_EXIT_MONTHCAL, pFun)
+	return xc.XEle_RegEventC1(d.W句柄, xcc.XE_DATETIME_EXIT_MONTHCAL, pFun)
 }

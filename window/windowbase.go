@@ -9,7 +9,7 @@ import (
 
 // windowBase 窗口基类.
 type windowBase struct {
-	objectbase.UI
+	基.UI
 }
 
 // MessageBox 炫彩_消息框.
@@ -32,7 +32,7 @@ func (w *windowBase) MessageBox(pTitle, pText string, nFlags xcc.MessageBox_Flag
 //	@return *ModalWindow 模态窗口对象.
 func (w *windowBase) Msg_Create(pTitle, pText string, nFlags xcc.MessageBox_Flag_, XCStyle xcc.Window_Style_) *ModalWindow {
 	p := &ModalWindow{}
-	p.SetHandle(xc.XMsg_Create(pTitle, pText, nFlags, w.GetHWND(), XCStyle))
+	p.W置句柄(xc.XMsg_Create(pTitle, pText, nFlags, w.GetHWND(), XCStyle))
 	return p
 }
 
@@ -48,7 +48,7 @@ func (w *windowBase) Msg_Create(pTitle, pText string, nFlags xcc.MessageBox_Flag
 //	@return *ModalWindow 模态窗口对象.
 func (w *windowBase) Msg_CreateEx(dwExStyle, dwStyle int, lpClassName, pTitle, pText string, nFlags xcc.MessageBox_Flag_, XCStyle xcc.Window_Style_) *ModalWindow {
 	p := &ModalWindow{}
-	p.SetHandle(xc.XMsg_CreateEx(dwExStyle, dwStyle, lpClassName, pTitle, pText, nFlags, w.GetHWND(), XCStyle))
+	p.W置句柄(xc.XMsg_CreateEx(dwExStyle, dwStyle, lpClassName, pTitle, pText, nFlags, w.GetHWND(), XCStyle))
 	return p
 }
 
@@ -60,7 +60,7 @@ func (w *windowBase) Msg_CreateEx(dwExStyle, dwStyle int, lpClassName, pTitle, p
 //
 // lParam:.
 func (w *windowBase) SendMessage(msg uint32, wParam int32, lParam int32) int {
-	return xc.XC_SendMessage(w.Handle, msg, wParam, lParam)
+	return xc.XC_SendMessage(w.W句柄, msg, wParam, lParam)
 }
 
 // 炫彩_投递窗口消息.
@@ -71,38 +71,38 @@ func (w *windowBase) SendMessage(msg uint32, wParam int32, lParam int32) int {
 //
 // lParam:.
 func (w *windowBase) PostMessage(msg uint32, wParam int32, lParam int32) bool {
-	return xc.XC_PostMessage(w.Handle, msg, wParam, lParam)
+	return xc.XC_PostMessage(w.W句柄, msg, wParam, lParam)
 }
 
 // 炫彩_判断窗口, 判断是否为窗口句柄.
 func (w *windowBase) IsHWINDOW() bool {
-	return xc.XC_IsHWINDOW(w.Handle)
+	return xc.XC_IsHWINDOW(w.W句柄)
 }
 
 // 炫彩_取对象从ID, 通过ID获取对象句柄, 不包括窗口对象.
 //
 // nID: ID值.
 func (w *windowBase) GetObjectByID(nID int) int {
-	return xc.XC_GetObjectByID(w.Handle, nID)
+	return xc.XC_GetObjectByID(w.W句柄, nID)
 }
 
 // 炫彩_取对象从ID名称, 通过ID名称获取对象句柄.
 //
 // pName: ID名称.
 func (w *windowBase) GetObjectByIDName(pName string) int {
-	return xc.XC_GetObjectByIDName(w.Handle, pName)
+	return xc.XC_GetObjectByIDName(w.W句柄, pName)
 }
 
 // 窗口_显示.
 //
 // nCmdShow: 显示方式: xcc.SW_.
 func (w *windowBase) ShowWindow(nCmdShow xcc.SW_) int {
-	return xc.XWnd_ShowWindow(w.Handle, nCmdShow)
+	return xc.XWnd_ShowWindow(w.W句柄, nCmdShow)
 }
 
 // 窗口_置顶.
 func (w *windowBase) SetTop() int {
-	return xc.XWnd_SetTop(w.Handle)
+	return xc.XWnd_SetTop(w.W句柄)
 }
 
 // 窗口_注册事件C.
@@ -111,7 +111,7 @@ func (w *windowBase) SetTop() int {
 //
 // pFun: 事件函数.
 func (w *windowBase) RegEventC(nEvent xcc.WM_, pFun interface{}) bool {
-	return xc.XWnd_RegEventC(w.Handle, nEvent, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, nEvent, pFun)
 }
 
 // 窗口_注册事件C1.
@@ -120,7 +120,7 @@ func (w *windowBase) RegEventC(nEvent xcc.WM_, pFun interface{}) bool {
 //
 // pFun: 事件函数.
 func (w *windowBase) RegEventC1(nEvent xcc.WM_, pFun interface{}) bool {
-	return xc.XWnd_RegEventC1(w.Handle, nEvent, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, nEvent, pFun)
 }
 
 // 窗口_移除事件C.
@@ -129,14 +129,14 @@ func (w *windowBase) RegEventC1(nEvent xcc.WM_, pFun interface{}) bool {
 //
 // pFun: 事件函数.
 func (w *windowBase) RemoveEventC(nEvent xcc.WM_, pFun interface{}) bool {
-	return xc.XWnd_RemoveEventC(w.Handle, nEvent, pFun)
+	return xc.XWnd_RemoveEventC(w.W句柄, nEvent, pFun)
 }
 
 // 窗口_添加子对象.
 //
 // hChild: 要添加的对象句柄.
 func (w *windowBase) AddChild(hChild int) bool {
-	return xc.XWnd_AddChild(w.Handle, hChild)
+	return xc.XWnd_AddChild(w.W句柄, hChild)
 }
 
 // 窗口_插入子对象.
@@ -145,19 +145,19 @@ func (w *windowBase) AddChild(hChild int) bool {
 //
 // index: 插入位置索引.
 func (w *windowBase) InsertChild(hChild int, index int) bool {
-	return xc.XWnd_InsertChild(w.Handle, hChild, index)
+	return xc.XWnd_InsertChild(w.W句柄, hChild, index)
 }
 
 // 窗口_取HWND.
 func (w *windowBase) GetHWND() int {
-	return xc.XWnd_GetHWND(w.Handle)
+	return xc.XWnd_GetHWND(w.W句柄)
 }
 
 // 窗口_重绘.
 //
 // bImmediate: 是否立即重绘, 默认为否.
 func (w *windowBase) Redraw(bImmediate bool) int {
-	return xc.XWnd_Redraw(w.Handle, bImmediate)
+	return xc.XWnd_Redraw(w.W句柄, bImmediate)
 }
 
 // 窗口_重绘指定区域.
@@ -166,43 +166,43 @@ func (w *windowBase) Redraw(bImmediate bool) int {
 //
 // bImmediate: TRUE立即重绘, FALSE放入消息队列延迟重绘.
 func (w *windowBase) RedrawRect(pRect *xc.RECT, bImmediate bool) int {
-	return xc.XWnd_RedrawRect(w.Handle, pRect, bImmediate)
+	return xc.XWnd_RedrawRect(w.W句柄, pRect, bImmediate)
 }
 
 // 窗口_置坐标.
 //
 // pRect: 坐标.
 func (w *windowBase) SetRect(pRect *xc.RECT) bool {
-	return xc.XWnd_SetRect(w.Handle, pRect)
+	return xc.XWnd_SetRect(w.W句柄, pRect)
 }
 
 // 窗口_置焦点.
 //
 // hFocusEle: 将获得焦点的元素.
 func (w *windowBase) SetFocusEle(hFocusEle int) bool {
-	return xc.XWnd_SetFocusEle(w.Handle, hFocusEle)
+	return xc.XWnd_SetFocusEle(w.W句柄, hFocusEle)
 }
 
 // 窗口_取焦点.
 func (w *windowBase) GetFocusEle() int {
-	return xc.XWnd_GetFocusEle(w.Handle)
+	return xc.XWnd_GetFocusEle(w.W句柄)
 }
 
 // 窗口_取鼠标停留元素.
 func (w *windowBase) GetStayEle() int {
-	return xc.XWnd_GetStayEle(w.Handle)
+	return xc.XWnd_GetStayEle(w.W句柄)
 }
 
 // 窗口_绘制, 在自绘事件函数中,用户手动调用绘制窗口, 以便控制绘制顺序.
 //
 // hDraw: 图形绘制句柄.
 func (w *windowBase) DrawWindow(hDraw int) int {
-	return xc.XWnd_DrawWindow(w.Handle, hDraw)
+	return xc.XWnd_DrawWindow(w.W句柄, hDraw)
 }
 
 // 窗口_居中.
 func (w *windowBase) Center() int {
-	return xc.XWnd_Center(w.Handle)
+	return xc.XWnd_Center(w.W句柄)
 }
 
 // 窗口_居中扩展.
@@ -211,173 +211,173 @@ func (w *windowBase) Center() int {
 //
 // height: 窗口高度.
 func (w *windowBase) CenterEx(width, height int) int {
-	return xc.XWnd_CenterEx(w.Handle, width, height)
+	return xc.XWnd_CenterEx(w.W句柄, width, height)
 }
 
 // 窗口_置光标.
 //
 // hCursor: 鼠标光标句柄.
 func (w *windowBase) SetCursor(hCursor int) int {
-	return xc.XWnd_SetCursor(w.Handle, hCursor)
+	return xc.XWnd_SetCursor(w.W句柄, hCursor)
 }
 
 // 窗口_取光标.
 func (w *windowBase) GetCursor() int {
-	return xc.XWnd_GetCursor(w.Handle)
+	return xc.XWnd_GetCursor(w.W句柄)
 }
 
 // 窗口_启用拖动边框.
 //
 // bEnable: 是否启用.
 func (w *windowBase) EnableDragBorder(bEnable bool) int {
-	return xc.XWnd_EnableDragBorder(w.Handle, bEnable)
+	return xc.XWnd_EnableDragBorder(w.W句柄, bEnable)
 }
 
 // 窗口_启用拖动窗口.
 //
 // bEnable: 是否启用.
 func (w *windowBase) EnableDragWindow(bEnable bool) int {
-	return xc.XWnd_EnableDragWindow(w.Handle, bEnable)
+	return xc.XWnd_EnableDragWindow(w.W句柄, bEnable)
 }
 
 // 窗口_启用拖动标题栏.
 //
 // bEnable: 是否启用.
 func (w *windowBase) EnableDragCaption(bEnable bool) int {
-	return xc.XWnd_EnableDragCaption(w.Handle, bEnable)
+	return xc.XWnd_EnableDragCaption(w.W句柄, bEnable)
 }
 
 // 窗口_启用绘制背景.
 //
 // bEnable: 是否启用.
 func (w *windowBase) EnableDrawBk(bEnable bool) int {
-	return xc.XWnd_EnableDrawBk(w.Handle, bEnable)
+	return xc.XWnd_EnableDrawBk(w.W句柄, bEnable)
 }
 
 // 窗口_启用自动焦点.
 //
 // bEnable: 是否启用.
 func (w *windowBase) EnableAutoFocus(bEnable bool) int {
-	return xc.XWnd_EnableAutoFocus(w.Handle, bEnable)
+	return xc.XWnd_EnableAutoFocus(w.W句柄, bEnable)
 }
 
 // 窗口_启用允许最大化.
 //
 // bEnable: 是否启用.
 func (w *windowBase) EnableMaxWindow(bEnable bool) int {
-	return xc.XWnd_EnableMaxWindow(w.Handle, bEnable)
+	return xc.XWnd_EnableMaxWindow(w.W句柄, bEnable)
 }
 
 // 窗口_启用限制窗口大小.
 //
 // bEnable: 是否启用.
 func (w *windowBase) EnablemLimitWindowSize(bEnable bool) int {
-	return xc.XWnd_EnablemLimitWindowSize(w.Handle, bEnable)
+	return xc.XWnd_EnablemLimitWindowSize(w.W句柄, bEnable)
 }
 
 // 窗口_启用布局.
 //
 // bEnable: 是否启用.
 func (w *windowBase) EnableLayout(bEnable bool) int {
-	return xc.XWnd_EnableLayout(w.Handle, bEnable)
+	return xc.XWnd_EnableLayout(w.W句柄, bEnable)
 }
 
 // 窗口_启用布局覆盖边框.
 //
 // bEnable: 是否启用.
 func (w *windowBase) EnableLayoutOverlayBorder(bEnable bool) int {
-	return xc.XWnd_EnableLayoutOverlayBorder(w.Handle, bEnable)
+	return xc.XWnd_EnableLayoutOverlayBorder(w.W句柄, bEnable)
 }
 
 // 窗口_显示布局边界.
 //
 // bEnable: 是否启用.
 func (w *windowBase) ShowLayoutFrame(bEnable bool) int {
-	return xc.XWnd_ShowLayoutFrame(w.Handle, bEnable)
+	return xc.XWnd_ShowLayoutFrame(w.W句柄, bEnable)
 }
 
 // 窗口_判断启用布局.
 func (w *windowBase) IsEnableLayout() bool {
-	return xc.XWnd_IsEnableLayout(w.Handle)
+	return xc.XWnd_IsEnableLayout(w.W句柄)
 }
 
 // 窗口_是否最大化.
 func (w *windowBase) IsMaxWindow() bool {
-	return xc.XWnd_IsMaxWindow(w.Handle)
+	return xc.XWnd_IsMaxWindow(w.W句柄)
 }
 
 // 窗口_置鼠标捕获元素.
 //
 // hEle: 元素句柄.
 func (w *windowBase) SetCaptureEle(hEle int) int {
-	return xc.XWnd_SetCaptureEle(w.Handle, hEle)
+	return xc.XWnd_SetCaptureEle(w.W句柄, hEle)
 }
 
 // 窗口_取鼠标捕获元素.
 func (w *windowBase) GetCaptureEle() int {
-	return xc.XWnd_GetCaptureEle(w.Handle)
+	return xc.XWnd_GetCaptureEle(w.W句柄)
 }
 
 // 窗口_取绘制矩形.
 //
 // pRcPaint: 重绘区域坐标.
 func (w *windowBase) GetDrawRect(pRcPaint *xc.RECT) int {
-	return xc.XWnd_GetDrawRect(w.Handle, pRcPaint)
+	return xc.XWnd_GetDrawRect(w.W句柄, pRcPaint)
 }
 
 // 窗口_置系统光标.
 //
 // hCursor: 光标句柄.
 func (w *windowBase) SetCursorSys(hCursor int) int {
-	return xc.XWnd_SetCursorSys(w.Handle, hCursor)
+	return xc.XWnd_SetCursorSys(w.W句柄, hCursor)
 }
 
 // 窗口_置字体.
 //
 // hFontx: 炫彩字体句柄.
 func (w *windowBase) SetFont(hFontx int) int {
-	return xc.XWnd_SetFont(w.Handle, hFontx)
+	return xc.XWnd_SetFont(w.W句柄, hFontx)
 }
 
 // 窗口_置文本颜色.
 //
 // color: ABGR 颜色值.
 func (w *windowBase) SetTextColor(color int) int {
-	return xc.XWnd_SetTextColor(w.Handle, color)
+	return xc.XWnd_SetTextColor(w.W句柄, color)
 }
 
 // 窗口_取文本颜色, 返回ABGR 颜色.
 func (w *windowBase) GetTextColor() int {
-	return xc.XWnd_GetTextColor(w.Handle)
+	return xc.XWnd_GetTextColor(w.W句柄)
 }
 
 // 窗口_取文本颜色扩展, 返回ABGR 颜色.
 func (w *windowBase) GetTextColorEx() int {
-	return xc.XWnd_GetTextColorEx(w.Handle)
+	return xc.XWnd_GetTextColorEx(w.W句柄)
 }
 
 // 窗口_置ID.
 //
 // nID: ID值.
 func (w *windowBase) SetID(nID int) int {
-	return xc.XWnd_SetID(w.Handle, nID)
+	return xc.XWnd_SetID(w.W句柄, nID)
 }
 
 // 窗口_取ID.
 func (w *windowBase) GetID() int {
-	return xc.XWnd_GetID(w.Handle)
+	return xc.XWnd_GetID(w.W句柄)
 }
 
 // 窗口_置名称.
 //
 // pName: name值, 字符串.
 func (w *windowBase) SetName(pName string) int {
-	return xc.XWnd_SetName(w.Handle, pName)
+	return xc.XWnd_SetName(w.W句柄, pName)
 }
 
 // 窗口_取名称.
 func (w *windowBase) GetName() string {
-	return xc.XWnd_GetName(w.Handle)
+	return xc.XWnd_GetName(w.W句柄)
 }
 
 // 窗口_置边大小.
@@ -390,12 +390,12 @@ func (w *windowBase) GetName() string {
 //
 // bottom: 窗口底部大小.
 func (w *windowBase) SetBorderSize(left, top, right, bottom int) int {
-	return xc.XWnd_SetBorderSize(w.Handle, left, top, right, bottom)
+	return xc.XWnd_SetBorderSize(w.W句柄, left, top, right, bottom)
 }
 
 // 窗口_取边大小.
 func (w *windowBase) GetBorderSize(pBorder *xc.RECT) int {
-	return xc.XWnd_GetBorderSize(w.Handle, pBorder)
+	return xc.XWnd_GetBorderSize(w.W句柄, pBorder)
 }
 
 // 窗口_置布局内填充大小.
@@ -408,7 +408,7 @@ func (w *windowBase) GetBorderSize(pBorder *xc.RECT) int {
 //
 // bottom: 下边大小.
 func (w *windowBase) SetPadding(left, top, right, bottom int) int {
-	return xc.XWnd_SetPadding(w.Handle, left, top, right, bottom)
+	return xc.XWnd_SetPadding(w.W句柄, left, top, right, bottom)
 }
 
 // 窗口_置拖动边框大小.
@@ -421,14 +421,14 @@ func (w *windowBase) SetPadding(left, top, right, bottom int) int {
 //
 // bottom: 窗口底边大小.
 func (w *windowBase) SetDragBorderSize(left, top, right, bottom int) int {
-	return xc.XWnd_SetDragBorderSize(w.Handle, left, top, right, bottom)
+	return xc.XWnd_SetDragBorderSize(w.W句柄, left, top, right, bottom)
 }
 
 // 窗口_取拖动边框大小.
 //
 // pSize: 拖动边框大小.
 func (w *windowBase) GetDragBorderSize(pBorder *xc.RECT) int {
-	return xc.XWnd_GetDragBorderSize(w.Handle, pBorder)
+	return xc.XWnd_GetDragBorderSize(w.W句柄, pBorder)
 }
 
 // 窗口_置最小大小.
@@ -437,57 +437,57 @@ func (w *windowBase) GetDragBorderSize(pBorder *xc.RECT) int {
 //
 // height: 最小高度.
 func (w *windowBase) SetMinimumSize(width, height int) int {
-	return xc.XWnd_SetMinimumSize(w.Handle, width, height)
+	return xc.XWnd_SetMinimumSize(w.W句柄, width, height)
 }
 
 // 窗口_测试点击子元素.
 //
 // pPt: 左边点.
 func (w *windowBase) HitChildEle(pPt *xc.POINT) int {
-	return xc.XWnd_HitChildEle(w.Handle, pPt)
+	return xc.XWnd_HitChildEle(w.W句柄, pPt)
 }
 
 // 窗口_取子对象数量.
 func (w *windowBase) GetChildCount() int {
-	return xc.XWnd_GetChildCount(w.Handle)
+	return xc.XWnd_GetChildCount(w.W句柄)
 }
 
 // 窗口_取子对象从索引.
 //
 // index: 元素索引.
 func (w *windowBase) GetChildByIndex(index int) int {
-	return xc.XWnd_GetChildByIndex(w.Handle, index)
+	return xc.XWnd_GetChildByIndex(w.W句柄, index)
 }
 
 // 窗口_取子对象从ID.
 //
 // nID: 元素ID, ID必须大于0.
 func (w *windowBase) GetChildByID(nID int) int {
-	return xc.XWnd_GetChildByID(w.Handle, nID)
+	return xc.XWnd_GetChildByID(w.W句柄, nID)
 }
 
 // 窗口_取子对象.
 //
 // nID: 对象ID,ID必须大于0.
 func (w *windowBase) GetChild(nID int) int {
-	return xc.XWnd_GetChild(w.Handle, nID)
+	return xc.XWnd_GetChild(w.W句柄, nID)
 }
 
 // 窗口_关闭.
 func (w *windowBase) CloseWindow() int {
-	return xc.XWnd_CloseWindow(w.Handle)
+	return xc.XWnd_CloseWindow(w.W句柄)
 }
 
 // 窗口_调整布局.
 func (w *windowBase) AdjustLayout() int {
-	return xc.XWnd_AdjustLayout(w.Handle)
+	return xc.XWnd_AdjustLayout(w.W句柄)
 }
 
 // 窗口_调整布局扩展.
 //
 // nFlags: 调整布局标识位: xcc.AdjustLayout_.
 func (w *windowBase) AdjustLayoutEx(nFlags xcc.AdjustLayout_) int {
-	return xc.XWnd_AdjustLayoutEx(w.Handle, nFlags)
+	return xc.XWnd_AdjustLayoutEx(w.W句柄, nFlags)
 }
 
 // 窗口_创建插入符.
@@ -502,7 +502,7 @@ func (w *windowBase) AdjustLayoutEx(nFlags xcc.AdjustLayout_) int {
 //
 // height: 高度.
 func (w *windowBase) CreateCaret(hEle, x, y, width, height int) int {
-	return xc.XWnd_CreateCaret(w.Handle, hEle, x, y, width, height)
+	return xc.XWnd_CreateCaret(w.W句柄, hEle, x, y, width, height)
 }
 
 // 窗口_置插入符位置, 设置插入符位置.
@@ -517,52 +517,52 @@ func (w *windowBase) CreateCaret(hEle, x, y, width, height int) int {
 //
 // bUpdate: 是否立即更新UI.
 func (w *windowBase) SetCaretPos(x, y, width, height int, bUpdate bool) int {
-	return xc.XWnd_SetCaretPos(w.Handle, x, y, width, height, bUpdate)
+	return xc.XWnd_SetCaretPos(w.W句柄, x, y, width, height, bUpdate)
 }
 
 // 窗口_置插入符颜色.
 //
 // color: 颜色值, ABGR 颜色.
 func (w *windowBase) SetCaretColor(color int) int {
-	return xc.XWnd_SetCaretColor(w.Handle, color)
+	return xc.XWnd_SetCaretColor(w.W句柄, color)
 }
 
 // 窗口_显示插入符.
 //
 // bShow: 是否显示.
 func (w *windowBase) ShowCaret(bShow bool) int {
-	return xc.XWnd_ShowCaret(w.Handle, bShow)
+	return xc.XWnd_ShowCaret(w.W句柄, bShow)
 }
 
 // 窗口_销毁插入符.
 func (w *windowBase) DestroyCaret() int {
-	return xc.XWnd_DestroyCaret(w.Handle)
+	return xc.XWnd_DestroyCaret(w.W句柄)
 }
 
 // 窗口_取插入符元素.
 func (w *windowBase) GetCaretHELE() int {
-	return xc.XWnd_GetCaretHELE(w.Handle)
+	return xc.XWnd_GetCaretHELE(w.W句柄)
 }
 
 // 窗口_取客户区坐标.
 //
 // pRect: 坐标.
 func (w *windowBase) GetClientRect(pRect *xc.RECT) int {
-	return xc.XWnd_GetClientRect(w.Handle, pRect)
+	return xc.XWnd_GetClientRect(w.W句柄, pRect)
 }
 
 // 窗口_取Body坐标.
 //
 // pRect: 坐标.
 func (w *windowBase) GetBodyRect(pRect *xc.RECT) int {
-	return xc.XWnd_GetBodyRect(w.Handle, pRect)
+	return xc.XWnd_GetBodyRect(w.W句柄, pRect)
 }
 
 // 窗口_取布局坐标.
 //
 // pRect: 接收返回坐标.
 func (w *windowBase) GetLayoutRect(pRect *xc.RECT) int {
-	return xc.XWnd_GetLayoutRect(w.Handle, pRect)
+	return xc.XWnd_GetLayoutRect(w.W句柄, pRect)
 }
 
 // 窗口_移动窗口.
@@ -571,21 +571,21 @@ func (w *windowBase) GetLayoutRect(pRect *xc.RECT) int {
 //
 // y: Y坐标.
 func (w *windowBase) SetPosition(x, y int) int {
-	return xc.XWnd_SetPosition(w.Handle, x, y)
+	return xc.XWnd_SetPosition(w.W句柄, x, y)
 }
 
 // 窗口_取坐标.
 //
 // pRect: 坐标.
 func (w *windowBase) GetRect(pRect *xc.RECT) int {
-	return xc.XWnd_GetRect(w.Handle, pRect)
+	return xc.XWnd_GetRect(w.W句柄, pRect)
 }
 
 // 窗口_最大化.
 //
 // bMaximize: 是否最大化.
 func (w *windowBase) MaxWindow(bMaximize bool) int {
-	return xc.XWnd_MaxWindow(w.Handle, bMaximize)
+	return xc.XWnd_MaxWindow(w.W句柄, bMaximize)
 }
 
 // 窗口_置定时器.
@@ -594,14 +594,14 @@ func (w *windowBase) MaxWindow(bMaximize bool) int {
 //
 // uElapse: 间隔值, 单位毫秒.
 func (w *windowBase) SetTimer(nIDEvent, uElapse int) int {
-	return xc.XWnd_SetTimer(w.Handle, nIDEvent, uElapse)
+	return xc.XWnd_SetTimer(w.W句柄, nIDEvent, uElapse)
 }
 
 // 窗口_关闭定时器.
 //
 // nIDEvent: 定时器ID.
 func (w *windowBase) KillTimer(nIDEvent int) int {
-	return xc.XWnd_KillTimer(w.Handle, nIDEvent)
+	return xc.XWnd_KillTimer(w.W句柄, nIDEvent)
 }
 
 // 窗口_置炫彩定时器.
@@ -610,52 +610,52 @@ func (w *windowBase) KillTimer(nIDEvent int) int {
 //
 // uElapse: 间隔值, 单位毫秒.
 func (w *windowBase) SetXCTimer(nIDEvent, uElapse int) int {
-	return xc.XWnd_SetXCTimer(w.Handle, nIDEvent, uElapse)
+	return xc.XWnd_SetXCTimer(w.W句柄, nIDEvent, uElapse)
 }
 
 // 窗口_关闭炫彩定时器.
 //
 // nIDEvent: 定时器ID.
 func (w *windowBase) KillXCTimer(nIDEvent int) int {
-	return xc.XWnd_KillXCTimer(w.Handle, nIDEvent)
+	return xc.XWnd_KillXCTimer(w.W句柄, nIDEvent)
 }
 
 // 窗口_取背景管理器.
 func (w *windowBase) GetBkManager() int {
-	return xc.XWnd_GetBkManager(w.Handle)
+	return xc.XWnd_GetBkManager(w.W句柄)
 }
 
 // 窗口_取背景管理器扩展.
 func (w *windowBase) GetBkManagerEx() int {
-	return xc.XWnd_GetBkManagerEx(w.Handle)
+	return xc.XWnd_GetBkManagerEx(w.W句柄)
 }
 
 // 窗口_置背景管理器.
 //
 // hBkInfoM: 背景管理器.
 func (w *windowBase) SetBkMagager(hBkInfoM int) int {
-	return xc.XWnd_SetBkMagager(w.Handle, hBkInfoM)
+	return xc.XWnd_SetBkMagager(w.W句柄, hBkInfoM)
 }
 
 // 窗口_置透明类型.
 //
 // nType: 窗口透明类型: xcc.Window_Transparent_.
 func (w *windowBase) SetTransparentType(nType xcc.Window_Transparent_) int {
-	return xc.XWnd_SetTransparentType(w.Handle, nType)
+	return xc.XWnd_SetTransparentType(w.W句柄, nType)
 }
 
 // 窗口_置透明度.
 //
 // alpha: 窗口透明度, 范围0-255之间, 0透明, 255不透明.
 func (w *windowBase) SetTransparentAlpha(alpha byte) int {
-	return xc.XWnd_SetTransparentAlpha(w.Handle, alpha)
+	return xc.XWnd_SetTransparentAlpha(w.W句柄, alpha)
 }
 
 // 窗口_置透明色.
 //
 // color: 窗口透明色, ABGR 颜色.
 func (w *windowBase) SetTransparentColor(color int) int {
-	return xc.XWnd_SetTransparentColor(w.Handle, color)
+	return xc.XWnd_SetTransparentColor(w.W句柄, color)
 }
 
 // 窗口_置阴影信息.
@@ -670,7 +670,7 @@ func (w *windowBase) SetTransparentColor(color int) int {
 //
 // color: 阴影颜色, ABGR 颜色.
 func (w *windowBase) SetShadowInfo(nSize int, nDepth byte, nAngeleSize int, bRightAngle bool, color int) int {
-	return xc.XWnd_SetShadowInfo(w.Handle, nSize, nDepth, nAngeleSize, bRightAngle, color)
+	return xc.XWnd_SetShadowInfo(w.W句柄, nSize, nDepth, nAngeleSize, bRightAngle, color)
 }
 
 // 窗口_取阴影信息.
@@ -685,26 +685,26 @@ func (w *windowBase) SetShadowInfo(nSize int, nDepth byte, nAngeleSize int, bRig
 //
 // pColor: 阴影颜色, ABGR 颜色.
 func (w *windowBase) GetShadowInfo(nSize *int, nDepth *byte, nAngeleSize *int, bRightAngle *bool, color *int) int {
-	return xc.XWnd_GetShadowInfo(w.Handle, nSize, nDepth, nAngeleSize, bRightAngle, color)
+	return xc.XWnd_GetShadowInfo(w.W句柄, nSize, nDepth, nAngeleSize, bRightAngle, color)
 }
 
 // 窗口_取透明类型, 返回: xcc.Window_Transparent_.
 func (w *windowBase) GetTransparentType() xcc.Window_Transparent_ {
-	return xc.XWnd_GetTransparentType(w.Handle)
+	return xc.XWnd_GetTransparentType(w.W句柄)
 }
 
 // 窗口_启用拖放文件.
 //
 // bEnable: 是否启用.
 func (w *windowBase) EnableDragFiles(bEnable bool) bool {
-	return xc.XWnd_EnableDragFiles(w.Handle, bEnable)
+	return xc.XWnd_EnableDragFiles(w.W句柄, bEnable)
 }
 
 // 窗口_显示 显示隐藏窗口.
 //
 // bShow: 是否显示.
 func (w *windowBase) Show(bShow bool) int {
-	return xc.XWnd_Show(w.Handle, bShow)
+	return xc.XWnd_Show(w.W句柄, bShow)
 }
 
 // 窗口_取插入符信息, 获取插入符信息, 返回: 插入符元素句柄.
@@ -719,50 +719,50 @@ func (w *windowBase) Show(bShow bool) int {
 //
 // pHeight: 接收返回高度.
 func (w *windowBase) GetCaretInfo(pX, pY, pWidth, pHeight *int) int {
-	return xc.XWnd_GetCaretInfo(w.Handle, pX, pY, pWidth, pHeight)
+	return xc.XWnd_GetCaretInfo(w.W句柄, pX, pY, pWidth, pHeight)
 }
 
 // 窗口_置图标.
 //
 // hImage: 图标句柄.
 func (w *windowBase) SetIcon(hImage int) int {
-	return xc.XWnd_SetIcon(w.Handle, hImage)
+	return xc.XWnd_SetIcon(w.W句柄, hImage)
 }
 
 // 窗口_置标题.
 //
 // pTitle: 标题文本.
 func (w *windowBase) SetTitle(pTitle string) int {
-	return xc.XWnd_SetTitle(w.Handle, pTitle)
+	return xc.XWnd_SetTitle(w.W句柄, pTitle)
 }
 
 // 窗口_置标题颜色.
 //
 // color: ABGR 颜色.
 func (w *windowBase) SetTitleColor(color int) int {
-	return xc.XWnd_SetTitleColor(w.Handle, color)
+	return xc.XWnd_SetTitleColor(w.W句柄, color)
 }
 
 // 窗口_取控制按钮, 返回按钮句柄.
 //
 // nFlag: 可用值: Window_Style_Btn_Min , Window_Style_Btn_Max , Window_Style_Btn_Close .
 func (w *windowBase) GetButton(nFlag int) int {
-	return xc.XWnd_GetButton(w.Handle, nFlag)
+	return xc.XWnd_GetButton(w.W句柄, nFlag)
 }
 
 // 窗口_取图标, 返回图标句柄.
 func (w *windowBase) GetIcon() int {
-	return xc.XWnd_GetIcon(w.Handle)
+	return xc.XWnd_GetIcon(w.W句柄)
 }
 
 // 窗口_取标题, 返回标题文本.
 func (w *windowBase) GetTitle() string {
-	return xc.XWnd_GetTitle(w.Handle)
+	return xc.XWnd_GetTitle(w.W句柄)
 }
 
 // 窗口_取标题颜色, 返回ABGR 颜色.
 func (w *windowBase) GetTitleColor() int {
-	return xc.XWnd_GetTitleColor(w.Handle)
+	return xc.XWnd_GetTitleColor(w.W句柄)
 }
 
 // 窗口_添加背景边框.
@@ -773,7 +773,7 @@ func (w *windowBase) GetTitleColor() int {
 //
 // width: 线宽.
 func (w *windowBase) AddBkBorder(nState xcc.Window_State_Flag_, color int, width int) int {
-	return xc.XWnd_AddBkBorder(w.Handle, nState, color, width)
+	return xc.XWnd_AddBkBorder(w.W句柄, nState, color, width)
 }
 
 // 窗口_添加背景填充.
@@ -782,7 +782,7 @@ func (w *windowBase) AddBkBorder(nState xcc.Window_State_Flag_, color int, width
 //
 // color: ABGR 颜色.
 func (w *windowBase) AddBkFill(nState xcc.Window_State_Flag_, color int) int {
-	return xc.XWnd_AddBkFill(w.Handle, nState, color)
+	return xc.XWnd_AddBkFill(w.W句柄, nState, color)
 }
 
 // 窗口_添加背景图片.
@@ -791,17 +791,17 @@ func (w *windowBase) AddBkFill(nState xcc.Window_State_Flag_, color int) int {
 //
 // hImage: 图片句柄.
 func (w *windowBase) AddBkImage(nState xcc.Window_State_Flag_, hImage int) int {
-	return xc.XWnd_AddBkImage(w.Handle, nState, hImage)
+	return xc.XWnd_AddBkImage(w.W句柄, nState, hImage)
 }
 
 // 窗口_取背景对象数量.
 func (w *windowBase) GetBkInfoCount() int {
-	return xc.XWnd_GetBkInfoCount(w.Handle)
+	return xc.XWnd_GetBkInfoCount(w.W句柄)
 }
 
 // 窗口_清空背景对象.
 func (w *windowBase) ClearBkInfo() int {
-	return xc.XWnd_ClearBkInfo(w.Handle)
+	return xc.XWnd_ClearBkInfo(w.W句柄)
 }
 
 // 通知消息_窗口中弹出, 使用基础元素作为面板, 弹出一个通知消息, 返回元素句柄, 通过此句柄可对其操作.
@@ -816,7 +816,7 @@ func (w *windowBase) ClearBkInfo() int {
 //
 // skin: 外观类型, NotifyMsg_Skin_.
 func (w *windowBase) NotifyMsg_WindowPopup(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_) int {
-	return xc.XNotifyMsg_WindowPopup(w.Handle, position, pTitle, pText, hIcon, skin)
+	return xc.XNotifyMsg_WindowPopup(w.W句柄, position, pTitle, pText, hIcon, skin)
 }
 
 // 通知消息_窗口中弹出扩展, 使用基础元素作为面板, 弹出一个通知消息, 返回元素句柄, 通过此句柄可对其操作.
@@ -839,14 +839,14 @@ func (w *windowBase) NotifyMsg_WindowPopup(position xcc.Position_Flag_, pTitle, 
 //
 // nHeight: 自定义高度, -1(使用默认值).
 func (w *windowBase) NotifyMsg_WindowPopupEx(position xcc.Position_Flag_, pTitle, pText string, hIcon int, skin xcc.NotifyMsg_Skin_, bBtnClose, bAutoClose bool, nWidth, nHeight int) int {
-	return xc.XNotifyMsg_WindowPopupEx(w.Handle, position, pTitle, pText, hIcon, skin, bBtnClose, bAutoClose, nWidth, nHeight)
+	return xc.XNotifyMsg_WindowPopupEx(w.W句柄, position, pTitle, pText, hIcon, skin, bBtnClose, bAutoClose, nWidth, nHeight)
 }
 
 // 通知消息_置持续时间.
 //
 // duration: 持续时间.
 func (w *windowBase) NotifyMsg_SetDuration(duration int) int {
-	return xc.XNotifyMsg_SetDuration(w.Handle, duration)
+	return xc.XNotifyMsg_SetDuration(w.W句柄, duration)
 }
 
 // 通知消息_置父边距 设置通知消息与父对象的四边间隔.
@@ -859,28 +859,28 @@ func (w *windowBase) NotifyMsg_SetDuration(duration int) int {
 //
 // bottom: 底部间隔, 未实现, 预留功能.
 func (w *windowBase) NotifyMsg_SetParentMargin(left, top, right, bottom int) int {
-	return xc.XNotifyMsg_SetParentMargin(w.Handle, left, top, right, bottom)
+	return xc.XNotifyMsg_SetParentMargin(w.W句柄, left, top, right, bottom)
 }
 
 // 通知消息_置标题高度.
 //
 // nHeight: 高度.
 func (w *windowBase) NotifyMsg_SetCaptionHeight(nHeight int) int {
-	return xc.XNotifyMsg_SetCaptionHeight(w.Handle, nHeight)
+	return xc.XNotifyMsg_SetCaptionHeight(w.W句柄, nHeight)
 }
 
 // 通知消息_置宽度, 设置默认宽度.
 //
 // nWidth: 宽度.
 func (w *windowBase) NotifyMsg_SetWidth(nWidth int) int {
-	return xc.XNotifyMsg_SetWidth(w.Handle, nWidth)
+	return xc.XNotifyMsg_SetWidth(w.W句柄, nWidth)
 }
 
 // 通知消息_置间隔.
 //
 // nSpace: 间隔大小.
 func (w *windowBase) NotifyMsg_SetSpace(nSpace int) int {
-	return xc.XNotifyMsg_SetSpace(w.Handle, nSpace)
+	return xc.XNotifyMsg_SetSpace(w.W句柄, nSpace)
 }
 
 // 通知消息_置边大小, 设置通知消息面板边大小.
@@ -893,29 +893,29 @@ func (w *windowBase) NotifyMsg_SetSpace(nSpace int) int {
 //
 // bottom: 底边.
 func (w *windowBase) NotifyMsg_SetBorderSize(left, top, right, bottom int) int {
-	return xc.XNotifyMsg_SetBorderSize(w.Handle, left, top, right, bottom)
+	return xc.XNotifyMsg_SetBorderSize(w.W句柄, left, top, right, bottom)
 }
 
 // 窗口_置背景, 返回设置的背景对象数量.
 //
 // pText: 背景内容字符串.
 func (w *windowBase) SetBkInfo(pText string) int {
-	return xc.XWnd_SetBkInfo(w.Handle, pText)
+	return xc.XWnd_SetBkInfo(w.W句柄, pText)
 }
 
 // 窗口_是否可拖动标题栏.
 func (w *windowBase) IsDragCaption() bool {
-	return xc.XWnd_IsDragCaption(w.Handle)
+	return xc.XWnd_IsDragCaption(w.W句柄)
 }
 
 // 窗口_是否可拖动窗口.
 func (w *windowBase) IsDragWindow() bool {
-	return xc.XWnd_IsDragWindow(w.Handle)
+	return xc.XWnd_IsDragWindow(w.W句柄)
 }
 
 // 窗口_是否可拖动边框.
 func (w *windowBase) IsDragBorder() bool {
-	return xc.XWnd_IsDragBorder(w.Handle)
+	return xc.XWnd_IsDragBorder(w.W句柄)
 }
 
 // 窗口_置标题外间距, 设置标题内容(图标, 标题, 控制按钮)外间距.
@@ -928,7 +928,7 @@ func (w *windowBase) IsDragBorder() bool {
 //
 // bottom: 下边间距.
 func (w *windowBase) SetCaptionMargin(left int, top int, right int, bottom int) int {
-	return xc.XWnd_SetCaptionMargin(w.Handle, left, top, right, bottom)
+	return xc.XWnd_SetCaptionMargin(w.W句柄, left, top, right, bottom)
 }
 
 // SetTopEx 窗口_置顶Ex.
@@ -1022,62 +1022,62 @@ type WM_DROPFILES1 func(hWindow int, hDropInfo int, pbHandled *bool) int        
 
 // 窗口消息过程.
 func (w *windowBase) Event_WINDPROC(pFun XWM_WINDPROC) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.XWM_WINDPROC, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.XWM_WINDPROC, pFun)
 }
 
 // 窗口消息过程.
 func (w *windowBase) Event_WINDPROC1(pFun XWM_WINDPROC1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_WINDPROC, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_WINDPROC, pFun)
 }
 
 // 炫彩定时器, 非系统定时器, 注册消息XWM_TIMER接收.
 func (w *windowBase) Event_XC_TIMER(pFun XWM_XC_TIMER) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.XWM_XC_TIMER, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.XWM_XC_TIMER, pFun)
 }
 
 // 炫彩定时器, 非系统定时器, 注册消息XWM_TIMER接收.
 func (w *windowBase) Event_XC_TIMER1(pFun XWM_XC_TIMER1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_XC_TIMER, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_XC_TIMER, pFun)
 }
 
 // 浮动窗格.
 func (w *windowBase) Event_FLOAT_PANE(pFun XWM_FLOAT_PANE) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.XWM_FLOAT_PANE, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.XWM_FLOAT_PANE, pFun)
 }
 
 // 浮动窗格.
 func (w *windowBase) Event_FLOAT_PANE1(pFun XWM_FLOAT_PANE1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_FLOAT_PANE, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_FLOAT_PANE, pFun)
 }
 
 // 窗口绘制完成消息.
 func (w *windowBase) Event_PAINT_END(pFun XWM_PAINT_END) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.XWM_PAINT_END, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.XWM_PAINT_END, pFun)
 }
 
 // 窗口绘制完成消息.
 func (w *windowBase) Event_PAINT_END1(pFun XWM_PAINT_END1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_PAINT_END, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_PAINT_END, pFun)
 }
 
 // 窗口绘制完成并且已经显示到屏幕.
 func (w *windowBase) Event_PAINT_DISPLAY(pFun XWM_PAINT_DISPLAY) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.XWM_PAINT_DISPLAY, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.XWM_PAINT_DISPLAY, pFun)
 }
 
 // 窗口绘制完成并且已经显示到屏幕.
 func (w *windowBase) Event_PAINT_DISPLAY1(pFun XWM_PAINT_DISPLAY1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_PAINT_DISPLAY, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_PAINT_DISPLAY, pFun)
 }
 
 // 框架窗口码头弹出窗格, 当用户点击码头上的按钮时, 显示对应的窗格, 当失去焦点时自动隐藏窗格.
 func (w *windowBase) Event_DOCK_POPUP(pFun XWM_DOCK_POPUP) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.XWM_DOCK_POPUP, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.XWM_DOCK_POPUP, pFun)
 }
 
 // 框架窗口码头弹出窗格, 当用户点击码头上的按钮时, 显示对应的窗格, 当失去焦点时自动隐藏窗格.
 func (w *windowBase) Event_DOCK_POPUP1(pFun XWM_DOCK_POPUP1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_DOCK_POPUP, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_DOCK_POPUP, pFun)
 }
 
 // 浮动窗口拖动, 用户拖动浮动窗口移动, 显示停靠提示.
@@ -1086,7 +1086,7 @@ func (w *windowBase) Event_DOCK_POPUP1(pFun XWM_DOCK_POPUP1) bool {
 //
 // hArray: HWINDOW array[6], 窗格停靠提示窗口句柄数组, 有6个成员, 分别为:[0]中间十字, [1]左侧, [2]顶部, [3]右侧, [4]底部, [5]停靠位置预览.
 func (w *windowBase) Event_FLOATWND_DRAG(pFun XWM_FLOATWND_DRAG) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_FLOATWND_DRAG, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_FLOATWND_DRAG, pFun)
 }
 
 // 浮动窗口拖动, 用户拖动浮动窗口移动, 显示停靠提示.
@@ -1097,247 +1097,247 @@ func (w *windowBase) Event_FLOATWND_DRAG(pFun XWM_FLOATWND_DRAG) bool {
 //
 // hArray: HWINDOW array[6], 窗格停靠提示窗口句柄数组, 有6个成员, 分别为:[0]中间十字, [1]左侧, [2]顶部, [3]右侧, [4]底部, [5]停靠位置预览.
 func (w *windowBase) Event_FLOATWND_DRAG1(pFun XWM_FLOATWND_DRAG1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_FLOATWND_DRAG, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_FLOATWND_DRAG, pFun)
 }
 
 // 窗口绘制消息.
 func (w *windowBase) Event_PAINT(pFun WM_PAINT) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_PAINT, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_PAINT, pFun)
 }
 
 // 窗口绘制消息.
 func (w *windowBase) Event_PAINT1(pFun WM_PAINT1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_PAINT, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_PAINT, pFun)
 }
 
 // 窗口关闭消息.
 func (w *windowBase) Event_CLOSE(pFun WM_CLOSE) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_CLOSE, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_CLOSE, pFun)
 }
 
 // 窗口关闭消息.
 func (w *windowBase) Event_CLOSE1(pFun WM_CLOSE1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_CLOSE, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_CLOSE, pFun)
 }
 
 // 窗口销毁消息.
 func (w *windowBase) Event_DESTROY(pFun WM_DESTROY) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_DESTROY, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_DESTROY, pFun)
 }
 
 // 窗口销毁消息.
 func (w *windowBase) Event_DESTROY1(pFun WM_DESTROY1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_DESTROY, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_DESTROY, pFun)
 }
 
 // 窗口非客户区销毁消息.
 func (w *windowBase) Event_NCDESTROY(pFun WM_NCDESTROY) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_NCDESTROY, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_NCDESTROY, pFun)
 }
 
 // 窗口非客户区销毁消息.
 func (w *windowBase) Event_NCDESTROY1(pFun WM_NCDESTROY1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_NCDESTROY, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_NCDESTROY, pFun)
 }
 
 // 窗口鼠标移动消息.
 func (w *windowBase) Event_MOUSEMOVE(pFun WM_MOUSEMOVE) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_MOUSEMOVE, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_MOUSEMOVE, pFun)
 }
 
 // 窗口鼠标移动消息.
 func (w *windowBase) Event_MOUSEMOVE1(pFun WM_MOUSEMOVE1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_MOUSEMOVE, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_MOUSEMOVE, pFun)
 }
 
 // 窗口鼠标左键按下消息.
 func (w *windowBase) Event_LBUTTONDOWN(pFun WM_LBUTTONDOWN) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_LBUTTONDOWN, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_LBUTTONDOWN, pFun)
 }
 
 // 窗口鼠标左键按下消息.
 func (w *windowBase) Event_LBUTTONDOWN1(pFun WM_LBUTTONDOWN1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_LBUTTONDOWN, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_LBUTTONDOWN, pFun)
 }
 
 // 窗口鼠标左键弹起消息.
 func (w *windowBase) Event_LBUTTONUP(pFun WM_LBUTTONUP) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_LBUTTONUP, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_LBUTTONUP, pFun)
 }
 
 // 窗口鼠标左键弹起消息.
 func (w *windowBase) Event_LBUTTONUP1(pFun WM_LBUTTONUP1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_LBUTTONUP, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_LBUTTONUP, pFun)
 }
 
 // 窗口鼠标右键按下消息.
 func (w *windowBase) Event_RBUTTONDOWN(pFun WM_RBUTTONDOWN) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_RBUTTONDOWN, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_RBUTTONDOWN, pFun)
 }
 
 // 窗口鼠标右键按下消息.
 func (w *windowBase) Event_RBUTTONDOWN1(pFun WM_RBUTTONDOWN1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_RBUTTONDOWN, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_RBUTTONDOWN, pFun)
 }
 
 // 窗口鼠标右键弹起消息.
 func (w *windowBase) Event_RBUTTONUP(pFun WM_RBUTTONUP) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_RBUTTONUP, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_RBUTTONUP, pFun)
 }
 
 // 窗口鼠标右键弹起消息.
 func (w *windowBase) Event_RBUTTONUP1(pFun WM_RBUTTONUP1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_RBUTTONUP, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_RBUTTONUP, pFun)
 }
 
 // 窗口鼠标左键双击消息.
 func (w *windowBase) Event_LBUTTONDBLCLK(pFun WM_LBUTTONDBLCLK) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_LBUTTONDBLCLK, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_LBUTTONDBLCLK, pFun)
 }
 
 // 窗口鼠标左键双击消息.
 func (w *windowBase) Event_LBUTTONDBLCLK1(pFun WM_LBUTTONDBLCLK1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_LBUTTONDBLCLK, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_LBUTTONDBLCLK, pFun)
 }
 
 // 窗口鼠标右键双击消息.
 func (w *windowBase) Event_RBUTTONDBLCLK(pFun WM_RBUTTONDBLCLK) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_RBUTTONDBLCLK, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_RBUTTONDBLCLK, pFun)
 }
 
 // 窗口鼠标右键双击消息.
 func (w *windowBase) Event_RBUTTONDBLCLK1(pFun WM_RBUTTONDBLCLK1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_RBUTTONDBLCLK, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_RBUTTONDBLCLK, pFun)
 }
 
 // 窗口鼠标滚轮滚动消息.
 func (w *windowBase) Event_MOUSEWHEEL(pFun WM_MOUSEWHEEL) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_MOUSEWHEEL, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_MOUSEWHEEL, pFun)
 }
 
 // 窗口鼠标滚轮滚动消息.
 func (w *windowBase) Event_MOUSEWHEEL1(pFun WM_MOUSEWHEEL1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_MOUSEWHEEL, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_MOUSEWHEEL, pFun)
 }
 
 // 窗口退出移动或调整大小模式循环改，详情参见MSDN.
 func (w *windowBase) Event_EXITSIZEMOVE(pFun WM_EXITSIZEMOVE) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_EXITSIZEMOVE, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_EXITSIZEMOVE, pFun)
 }
 
 // 窗口退出移动或调整大小模式循环改，详情参见MSDN.
 func (w *windowBase) Event_EXITSIZEMOVE1(pFun WM_EXITSIZEMOVE1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_EXITSIZEMOVE, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_EXITSIZEMOVE, pFun)
 }
 
 // 窗口鼠标进入消息.
 func (w *windowBase) Event_MOUSEHOVER(pFun WM_MOUSEHOVER) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_MOUSEHOVER, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_MOUSEHOVER, pFun)
 }
 
 // 窗口鼠标进入消息.
 func (w *windowBase) Event_MOUSEHOVER1(pFun WM_MOUSEHOVER1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_MOUSEHOVER, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_MOUSEHOVER, pFun)
 }
 
 // 窗口鼠标离开消息.
 func (w *windowBase) Event_MOUSELEAVE(pFun WM_MOUSELEAVE) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_MOUSELEAVE, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_MOUSELEAVE, pFun)
 }
 
 // 窗口鼠标离开消息.
 func (w *windowBase) Event_MOUSELEAVE1(pFun WM_MOUSELEAVE1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_MOUSELEAVE, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_MOUSELEAVE, pFun)
 }
 
 // 窗口大小改变消息.
 func (w *windowBase) Event_SIZE(pFun WM_SIZE) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_SIZE, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_SIZE, pFun)
 }
 
 // 窗口大小改变消息.
 func (w *windowBase) Event_SIZE1(pFun WM_SIZE1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_SIZE, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_SIZE, pFun)
 }
 
 // 窗口定时器消息.
 func (w *windowBase) Event_TIMER(pFun WM_TIMER) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_TIMER, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_TIMER, pFun)
 }
 
 // 窗口定时器消息.
 func (w *windowBase) Event_TIMER1(pFun WM_TIMER1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_TIMER, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_TIMER, pFun)
 }
 
 // 窗口获得焦点.
 func (w *windowBase) Event_SETFOCUS(pFun WM_SETFOCUS) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_SETFOCUS, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_SETFOCUS, pFun)
 }
 
 // 窗口获得焦点.
 func (w *windowBase) Event_SETFOCUS1(pFun WM_SETFOCUS1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_SETFOCUS, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_SETFOCUS, pFun)
 }
 
 // 窗口失去焦点.
 func (w *windowBase) Event_KILLFOCUS(pFun WM_KILLFOCUS) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_KILLFOCUS, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_KILLFOCUS, pFun)
 }
 
 // 窗口失去焦点.
 func (w *windowBase) Event_KILLFOCUS1(pFun WM_KILLFOCUS1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_KILLFOCUS, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_KILLFOCUS, pFun)
 }
 
 // 窗口键盘按键消息.
 func (w *windowBase) Event_KEYDOWN(pFun WM_KEYDOWN) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_KEYDOWN, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_KEYDOWN, pFun)
 }
 
 // 窗口键盘按键消息.
 func (w *windowBase) Event_KEYDOWN1(pFun WM_KEYDOWN1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_KEYDOWN, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_KEYDOWN, pFun)
 }
 
 // 窗口鼠标捕获改变消息.
 func (w *windowBase) Event_CAPTURECHANGED(pFun WM_CAPTURECHANGED) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_CAPTURECHANGED, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_CAPTURECHANGED, pFun)
 }
 
 // 窗口鼠标捕获改变消息.
 func (w *windowBase) Event_CAPTURECHANGED1(pFun WM_CAPTURECHANGED1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_CAPTURECHANGED, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_CAPTURECHANGED, pFun)
 }
 
 // 窗口设置鼠标光标.
 func (w *windowBase) Event_SETCURSOR(pFun WM_SETCURSOR) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_SETCURSOR, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_SETCURSOR, pFun)
 }
 
 // 窗口设置鼠标光标.
 func (w *windowBase) Event_SETCURSOR1(pFun WM_SETCURSOR1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_SETCURSOR, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_SETCURSOR, pFun)
 }
 
 // 窗口字符消息.
 func (w *windowBase) Event_CHAR(pFun WM_CHAR) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_CHAR, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_CHAR, pFun)
 }
 
 // 窗口字符消息.
 func (w *windowBase) Event_CHAR1(pFun WM_CHAR1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_CHAR, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_CHAR, pFun)
 }
 
 // 拖动文件到窗口.
 func (w *windowBase) Event_DROPFILES(pFun WM_DROPFILES) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.WM_DROPFILES, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.WM_DROPFILES, pFun)
 }
 
 // 拖动文件到窗口.
 func (w *windowBase) Event_DROPFILES1(pFun WM_DROPFILES1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.WM_DROPFILES, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.WM_DROPFILES, pFun)
 }
 
 type XWM_MENU_POPUP func(hMenu int, pbHandled *bool) int                                           // 菜单弹出.
@@ -1349,32 +1349,32 @@ type XWM_MENU_DRAWITEM func(hDraw int, pInfo *xc.Menu_DrawItem_, pbHandled *bool
 
 // 菜单弹出.
 func (w *windowBase) Event_MENU_POPUP(pFun XWM_MENU_POPUP) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.XWM_MENU_POPUP, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.XWM_MENU_POPUP, pFun)
 }
 
 // 菜单弹出窗口.
 func (w *windowBase) Event_MENU_POPUP_WND(pFun XWM_MENU_POPUP_WND) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.XWM_MENU_POPUP_WND, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.XWM_MENU_POPUP_WND, pFun)
 }
 
 // 菜单选择.
 func (w *windowBase) Event_MENU_SELECT(pFun XWM_MENU_SELECT) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.XWM_MENU_SELECT, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.XWM_MENU_SELECT, pFun)
 }
 
 // 菜单退出.
 func (w *windowBase) Event_MENU_EXIT(pFun XWM_MENU_EXIT) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.XWM_MENU_EXIT, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.XWM_MENU_EXIT, pFun)
 }
 
 // 绘制菜单背景, 启用该功能需要调用XMenu_EnableDrawBackground().
 func (w *windowBase) Event_MENU_DRAW_BACKGROUND(pFun XWM_MENU_DRAW_BACKGROUND) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.XWM_MENU_DRAW_BACKGROUND, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.XWM_MENU_DRAW_BACKGROUND, pFun)
 }
 
 // 绘制菜单项事件, 启用该功能需要调用XMenu_EnableDrawItem().
 func (w *windowBase) Event_MENU_DRAWITEM(pFun XWM_MENU_DRAWITEM) bool {
-	return xc.XWnd_RegEventC(w.Handle, xcc.XWM_MENU_DRAWITEM, pFun)
+	return xc.XWnd_RegEventC(w.W句柄, xcc.XWM_MENU_DRAWITEM, pFun)
 }
 
 /* type XWM_MENU_POPUP1 func(hWindow int, hMenu int, pbHandled *bool) int                                           // 菜单弹出.
@@ -1386,30 +1386,30 @@ type XWM_MENU_DRAWITEM1 func(hWindow int, hDraw int, pInfo *xc.Menu_DrawItem_, p
 
 // 菜单弹出.
 func (w *windowBase) Event_MENU_POPUP1(pFun XWM_MENU_POPUP1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_MENU_POPUP, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_MENU_POPUP, pFun)
 }
 
 // 菜单弹出窗口.
 func (w *windowBase) Event_MENU_POPUP_WND1(pFun XWM_MENU_POPUP_WND1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_MENU_POPUP_WND, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_MENU_POPUP_WND, pFun)
 }
 
 // 菜单选择.
 func (w *windowBase) Event_MENU_SELECT1(pFun XWM_MENU_SELECT1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_MENU_SELECT, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_MENU_SELECT, pFun)
 }
 
 // 菜单退出.
 func (w *windowBase) Event_MENU_EXIT1(pFun XWM_MENU_EXIT1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_MENU_EXIT, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_MENU_EXIT, pFun)
 }
 
 // 绘制菜单背景, 启用该功能需要调用XMenu_EnableDrawBackground().
 func (w *windowBase) Event_MENU_DRAW_BACKGROUND1(pFun XWM_MENU_DRAW_BACKGROUND1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_MENU_DRAW_BACKGROUND, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_MENU_DRAW_BACKGROUND, pFun)
 }
 
 // 绘制菜单项事件, 启用该功能需要调用XMenu_EnableDrawItem().
 func (w *windowBase) Event_MENU_DRAWITEM1(pFun XWM_MENU_DRAWITEM1) bool {
-	return xc.XWnd_RegEventC1(w.Handle, xcc.XWM_MENU_DRAWITEM, pFun)
+	return xc.XWnd_RegEventC1(w.W句柄, xcc.XWM_MENU_DRAWITEM, pFun)
 } */

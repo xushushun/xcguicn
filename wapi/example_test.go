@@ -42,7 +42,7 @@ func ExampleClientToScreen() {
 	wapi.ClientToScreen(w.GetHWND(), &pt)
 	fmt.Println(pt)
 
-	a.ShowAndRun(w.Handle)
+	a.ShowAndRun(w.W句柄)
 	a.Exit()
 }
 

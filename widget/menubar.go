@@ -20,14 +20,14 @@ type MenuBar struct {
 // hParent: 父是窗口资源句柄或UI元素资源句柄. 如果是窗口资源句柄将被添加到窗口, 如果是元素资源句柄将被添加到元素.
 func NewMenuBar(x int, y int, cx int, cy int, hParent int) *MenuBar {
 	p := &MenuBar{}
-	p.SetHandle(xc.XMenuBar_Create(x, y, cx, cy, hParent))
+	p.W置句柄(xc.XMenuBar_Create(x, y, cx, cy, hParent))
 	return p
 }
 
 // 从句柄创建对象.
 func NewMenuBarByHandle(handle int) *MenuBar {
 	p := &MenuBar{}
-	p.SetHandle(handle)
+	p.W置句柄(handle)
 	return p
 }
 
@@ -36,7 +36,7 @@ func NewMenuBarByName(name string) *MenuBar {
 	handle := xc.XC_GetObjectByName(name)
 	if handle > 0 {
 		p := &MenuBar{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -47,7 +47,7 @@ func NewMenuBarByUID(nUID int) *MenuBar {
 	handle := xc.XC_GetObjectByUID(nUID)
 	if handle > 0 {
 		p := &MenuBar{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -58,7 +58,7 @@ func NewMenuBarByUIDName(name string) *MenuBar {
 	handle := xc.XC_GetObjectByUIDName(name)
 	if handle > 0 {
 		p := &MenuBar{}
-		p.SetHandle(handle)
+		p.W置句柄(handle)
 		return p
 	}
 	return nil
@@ -68,40 +68,40 @@ func NewMenuBarByUIDName(name string) *MenuBar {
 //
 // pText: 文本内容.
 func (m *MenuBar) AddButton(pText string) int {
-	return xc.XMenuBar_AddButton(m.Handle, pText)
+	return xc.XMenuBar_AddButton(m.W句柄, pText)
 }
 
 // 菜单条_置按钮高度, 根据内容自动调整宽度.
 //
 // height: 高度.
 func (m *MenuBar) SetButtonHeight(height int) int {
-	return xc.XMenuBar_SetButtonHeight(m.Handle, height)
+	return xc.XMenuBar_SetButtonHeight(m.W句柄, height)
 }
 
 // 菜单条_取菜单, 返回菜单句柄.
 //
 // nIndex: 菜单条上菜单按钮的索引.
 func (m *MenuBar) GetMenu(nIndex int) int {
-	return xc.XMenuBar_GetMenu(m.Handle, nIndex)
+	return xc.XMenuBar_GetMenu(m.W句柄, nIndex)
 }
 
 // 菜单条_删除按钮, 删除菜单条上的菜单按钮, 同时该按钮下的弹出菜单也被销毁.
 //
 // nIndex: 菜单条按钮索引.
 func (m *MenuBar) DeleteButton(nIndex int) bool {
-	return xc.XMenuBar_DeleteButton(m.Handle, nIndex)
+	return xc.XMenuBar_DeleteButton(m.W句柄, nIndex)
 }
 
 // 菜单条_启用自动宽度, 根据内容自动调整宽度.
 //
 // bEnable: 是否启用.
 func (m *MenuBar) EnableAutoWidth(bEnable bool) int {
-	return xc.XMenuBar_EnableAutoWidth(m.Handle, bEnable)
+	return xc.XMenuBar_EnableAutoWidth(m.W句柄, bEnable)
 }
 
 // 菜单条_取菜单按钮. 返回按钮句柄.
 //
 // nIndex: 菜单条按钮索引.
 func (m *MenuBar) GetButton(nIndex int) bool {
-	return xc.XMenuBar_GetButton(m.Handle, nIndex)
+	return xc.XMenuBar_GetButton(m.W句柄, nIndex)
 }
